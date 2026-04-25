@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Arumi & Rendy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        forest: {
+                            50: '#f2f7f2',
+                            100: '#e1ede1',
+                            200: '#c5dbc5',
+                            300: '#9aba9a',
+                            400: '#6d946d',
+                            500: '#4d754d',
+                            600: '#3c5c3c',
+                            700: '#324a32',
+                            800: '#2a3c2a',
+                            900: '#243324',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .locked {
+            overflow: hidden;
+            height: 100vh;
+        }
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.7s ease-out;
+        }
+        .reveal-zoom {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.7s ease-out;
+        }
+        .is-active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .bg-forest-pattern {
+            background-image: url('assets/main-bg.webp');
+            background-size: cover;
+            background-position: center;
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 8s linear infinite;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 locked">
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" loop>
+        <source src="https://s2.foreverr.id/assets/music/penjaga-hati.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Cover Section -->
+    <section id="cover" class="fixed inset-0 z-[100] flex items-center justify-center bg-forest-pattern transition-opacity duration-1000">
+        <!-- Floating Assets -->
+        <img src="assets/header-main-bg.webp" class="absolute top-0 left-0 w-32 md:w-48 opacity-80" alt="">
+        <img src="assets/header-main-bg.webp" class="absolute bottom-0 right-0 w-32 md:w-48 opacity-80 rotate-180" alt="">
+        
+        <div class="text-center px-6 relative z-10">
+            <h2 class="font-serif text-xl md:text-2xl tracking-widest text-forest-700 mb-4 uppercase">The Wedding of</h2>
+            <h1 class="font-serif text-5xl md:text-7xl text-forest-800 mb-8">Arumi & Rendy</h1>
+            
+            <div class="mb-10 text-forest-600">
+                <p class="text-sm uppercase tracking-widest mb-2">Kepada Yth.</p>
+                <p class="text-sm uppercase tracking-widest mb-4">Bapak/Ibu/Saudara/i</p>
+                <h3 id="guestName" class="text-2xl font-semibold text-forest-900 mb-2">Tamu Undangan</h3>
+            </div>
+
+            <button id="btnOpen" class="inline-flex items-center px-8 py-3 bg-forest-700 text-white rounded-full shadow-lg hover:bg-forest-800 transition-all transform hover:scale-105">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Buka Undangan
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Content (Hidden until unlocked) -->
+    <main id="mainContent" class="opacity-0 transition-opacity duration-1000">
+        
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex flex-col items-center justify-center py-20 bg-forest-50 relative overflow-hidden">
+             <!-- Floating Decorations -->
+             <img src="assets/butterfly-one.webp" class="absolute top-20 left-10 w-16 animate-pulse opacity-60" alt="">
+             <img src="assets/butterfly-second.webp" class="absolute bottom-40 right-10 w-20 animate-bounce opacity-60" alt="">
+             <img src="assets/cloud.webp" class="absolute top-10 right-20 w-32 opacity-40" alt="">
+             <img src="assets/cloud.webp" class="absolute bottom-20 left-20 w-40 opacity-30" alt="">
+
+             <div class="container mx-auto px-6 text-center z-10">
+                <div class="reveal-zoom mb-8">
+                    <div class="relative inline-block">
+                        <img src="assets/foreverr.id_xr2tl.webp" class="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full object-cover border-[12px] border-white shadow-2xl" alt="Couple">
+                        <div class="absolute inset-0 rounded-full border-4 border-forest-200 animate-spin-slow m-[-8px]"></div>
+                    </div>
+                </div>
+                <h2 class="font-serif text-2xl md:text-3xl text-forest-700 mb-2 reveal-up">The Wedding of</h2>
+                <h1 class="font-serif text-6xl md:text-9xl text-forest-800 mb-6 reveal-up">Arumi & Rendy</h1>
+                <div class="flex items-center justify-center gap-4 mb-6 reveal-up">
+                    <div class="h-[1px] w-12 bg-forest-300"></div>
+                    <p class="text-xl text-forest-600 tracking-[0.3em] font-light">10 MEI 2026</p>
+                    <div class="h-[1px] w-12 bg-forest-300"></div>
+                </div>
+             </div>
+             
+             <!-- Decorative Birds -->
+             <div id="lottie-bird" class="absolute bottom-10 right-10 w-40 h-40"></div>
+        </section>
+
+        <!-- Couple Section -->
+        <section id="couple" class="py-20 bg-white relative overflow-hidden">
+            <!-- Decorative Leaves -->
+            <img src="assets/header-main-bg.webp" class="absolute -top-10 -left-10 w-40 opacity-20 -rotate-12" alt="">
+            <img src="assets/header-main-bg.webp" class="absolute -bottom-10 -right-10 w-40 opacity-20 rotate-164" alt="">
+            
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <div class="reveal-up mb-12 italic text-forest-600 max-w-2xl mx-auto px-4">
+                    <svg class="w-10 h-10 mx-auto mb-4 text-forest-200" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.154c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+                    “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya”
+                    <p class="mt-4 font-bold text-forest-800 tracking-widest">– QS. AR-RUM 21 –</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <!-- Bride -->
+                    <div class="reveal-up">
+                        <div class="relative w-64 h-64 mx-auto mb-8">
+                            <img src="assets/foreverr.id_ztgcx.png" class="w-full h-full object-contain relative z-10" alt="Bride">
+                            <div class="absolute inset-0 bg-forest-50 rounded-full scale-110 -z-0"></div>
+                        </div>
+                        <h3 class="font-serif text-4xl text-forest-800 mb-2">Arumi Shalwa Affandi, M.Pd.</h3>
+                        <p class="text-forest-600 mb-6 font-medium">Putri dari Bapak Muhammad Miswanto <br> & Ibu Siti Sarmi</p>
+                        <a href="#" class="inline-flex items-center text-forest-500 hover:text-forest-700 transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44-1.44-.645-1.44-1.44.644-1.44 1.44-1.44z"/></svg>
+                            @arumi_s
+                        </a>
+                    </div>
+                    <!-- Groom -->
+                    <div class="reveal-up">
+                        <div class="relative w-64 h-64 mx-auto mb-8">
+                            <img src="assets/foreverr.id_ztgcx.png" class="w-full h-full object-contain relative z-10 transform scale-x-[-1]" alt="Groom">
+                            <div class="absolute inset-0 bg-forest-50 rounded-full scale-110 -z-0"></div>
+                        </div>
+                        <h3 class="font-serif text-4xl text-forest-800 mb-2">Rendy Hanif, S.Pd., S.E.</h3>
+                        <p class="text-forest-600 mb-6 font-medium">Putra dari Bapak Azwir Hanif <br> & Ibu Rosda Hasim</p>
+                        <a href="#" class="inline-flex items-center text-forest-500 hover:text-forest-700 transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44-1.44-.645-1.44-1.44.644-1.44 1.44-1.44z"/></svg>
+                            @rendy_h
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Section -->
+        <section id="event" class="py-24 bg-forest-pattern text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-forest-900/70 backdrop-blur-[2px]"></div>
+            
+            <!-- Floating Elements -->
+            <img src="assets/butterfly-one.webp" class="absolute top-1/4 right-0 w-24 opacity-30 rotate-45" alt="">
+            <img src="assets/cloud.webp" class="absolute top-10 left-10 w-48 opacity-20" alt="">
+
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h2 class="font-serif text-5xl mb-16 reveal-up tracking-widest uppercase">Save The Date</h2>
+                
+                <!-- Countdown -->
+                <div id="countdown" class="flex flex-wrap justify-center gap-6 mb-20 reveal-zoom">
+                    <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-2xl min-w-[100px] shadow-xl">
+                        <span id="days" class="block text-4xl md:text-5xl font-bold mb-1">00</span>
+                        <span class="text-xs md:text-sm uppercase tracking-widest opacity-70">Hari</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-2xl min-w-[100px] shadow-xl">
+                        <span id="hours" class="block text-4xl md:text-5xl font-bold mb-1">00</span>
+                        <span class="text-xs md:text-sm uppercase tracking-widest opacity-70">Jam</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-2xl min-w-[100px] shadow-xl">
+                        <span id="minutes" class="block text-4xl md:text-5xl font-bold mb-1">00</span>
+                        <span class="text-xs md:text-sm uppercase tracking-widest opacity-70">Menit</span>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-6 rounded-2xl min-w-[100px] shadow-xl">
+                        <span id="seconds" class="block text-4xl md:text-5xl font-bold mb-1">00</span>
+                        <span class="text-xs md:text-sm uppercase tracking-widest opacity-70">Detik</span>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <div class="bg-white text-forest-900 p-10 rounded-[2rem] reveal-up shadow-2xl relative group hover:scale-[1.02] transition-transform duration-500">
+                        <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <svg class="w-20 h-20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <h3 class="font-serif text-3xl text-forest-800 mb-6 border-b border-forest-100 pb-4">Akad Nikah</h3>
+                        <div class="space-y-4 mb-8">
+                            <p class="text-xl font-medium">Minggu, 10 Mei 2026</p>
+                            <p class="text-forest-600">08.00 - 10.00 WIB</p>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="font-bold text-forest-700">Kediaman Mempelai Wanita</p>
+                            <p class="text-sm text-forest-500 italic leading-relaxed">Jl. Kayu Manis VIII No. 35 <br> Matraman, Jakarta Timur</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white text-forest-900 p-10 rounded-[2rem] reveal-up shadow-2xl relative group hover:scale-[1.02] transition-transform duration-500">
+                        <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <svg class="w-20 h-20" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
+                        </div>
+                        <h3 class="font-serif text-3xl text-forest-800 mb-6 border-b border-forest-100 pb-4">Resepsi</h3>
+                        <div class="space-y-4 mb-8">
+                            <p class="text-xl font-medium">Minggu, 10 Mei 2026</p>
+                            <p class="text-forest-600">11.00 - Selesai WIB</p>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="font-bold text-forest-700">Kediaman Mempelai Wanita</p>
+                            <p class="text-sm text-forest-500 italic leading-relaxed">Jl. Kayu Manis VIII No. 35 <br> Matraman, Jakarta Timur</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 reveal-up">
+                    <a href="https://goo.gl/maps/xyz" target="_blank" class="inline-flex items-center px-10 py-4 bg-white text-forest-800 rounded-full font-bold shadow-xl hover:bg-forest-50 transform hover:-translate-y-1 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-forest-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        Buka Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section id="story" class="py-24 bg-white relative overflow-hidden">
+            <img src="assets/header-main-bg.webp" class="absolute top-1/2 -right-20 w-64 opacity-10 rotate-45" alt="">
+            
+            <div class="container mx-auto px-6">
+                <h2 class="font-serif text-5xl text-center text-forest-800 mb-20 reveal-up uppercase tracking-widest">Love Story</h2>
+                
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-forest-100 rounded-full overflow-hidden">
+                        <div id="progressLine" class="w-full bg-forest-600 transition-all duration-300 shadow-[0_0_10px_rgba(77,117,77,0.5)]" style="height: 0%"></div>
+                    </div>
+
+                    <!-- Story Items -->
+                    <div class="space-y-24">
+                        <!-- Item 1 -->
+                        <div class="relative flex items-center justify-between reveal-up group">
+                            <div class="w-5/12 text-right pr-8 md:pr-12">
+                                <div class="bg-forest-50 p-6 rounded-2xl shadow-sm group-hover:shadow-md transition-shadow">
+                                    <h3 class="font-serif text-3xl text-forest-800 mb-2">Perkenalan</h3>
+                                    <p class="text-sm font-bold text-forest-400 mb-3 tracking-widest">2015</p>
+                                    <p class="text-gray-600 leading-relaxed">Kami dipertemukan saat menjadi Mahasiswa Baru. Berada di satu Jurusan dan Kelas yang sama, pada saat itu kami hanya teman biasa.</p>
+                                </div>
+                            </div>
+                            <div class="z-10 w-12 h-12 bg-white rounded-full flex items-center justify-center text-forest-600 border-4 border-forest-600 shadow-lg transform group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"></path></svg>
+                            </div>
+                            <div class="w-5/12"></div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="relative flex items-center justify-between flex-row-reverse reveal-up group">
+                            <div class="w-5/12 text-left pl-8 md:pl-12">
+                                <div class="bg-forest-50 p-6 rounded-2xl shadow-sm group-hover:shadow-md transition-shadow">
+                                    <h3 class="font-serif text-3xl text-forest-800 mb-2">Awal Hubungan</h3>
+                                    <p class="text-sm font-bold text-forest-400 mb-3 tracking-widest">AKHIR 2016</p>
+                                    <p class="text-gray-600 leading-relaxed">Setahun kemudian kami menjadi sahabat dekat, hingga di akhir Tahun 2016 dia menyatakan perasaannya dan dimulailah perjalanan indah kami.</p>
+                                </div>
+                            </div>
+                            <div class="z-10 w-12 h-12 bg-white rounded-full flex items-center justify-center text-forest-600 border-4 border-forest-600 shadow-lg transform group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"></path></svg>
+                            </div>
+                            <div class="w-5/12"></div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="relative flex items-center justify-between reveal-up group">
+                            <div class="w-5/12 text-right pr-8 md:pr-12">
+                                <div class="bg-forest-50 p-6 rounded-2xl shadow-sm group-hover:shadow-md transition-shadow">
+                                    <h3 class="font-serif text-3xl text-forest-800 mb-2">Lamaran</h3>
+                                    <p class="text-sm font-bold text-forest-400 mb-3 tracking-widest">17 JANUARI 2021</p>
+                                    <p class="text-gray-600 leading-relaxed">Setelah waktu yang lama menjalin hubungan, dia mengajak serius dan membawa keluarga untuk melamar saya menuju ke pernikahan.</p>
+                                </div>
+                            </div>
+                            <div class="z-10 w-12 h-12 bg-white rounded-full flex items-center justify-center text-forest-600 border-4 border-forest-600 shadow-lg transform group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"></path></svg>
+                            </div>
+                            <div class="w-5/12"></div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="relative flex items-center justify-between flex-row-reverse reveal-up group">
+                            <div class="w-5/12 text-left pl-8 md:pl-12">
+                                <div class="bg-forest-50 p-6 rounded-2xl shadow-sm group-hover:shadow-md transition-shadow">
+                                    <h3 class="font-serif text-3xl text-forest-800 mb-2">Pernikahan</h3>
+                                    <p class="text-sm font-bold text-forest-400 mb-3 tracking-widest">10 MEI 2026</p>
+                                    <p class="text-gray-600 leading-relaxed">Dengan Ridha Allah SWT dan kedua orangtua, kami melangkah menuju lembaran baru untuk menyatukan cinta dalam ikatan suci pernikahan.</p>
+                                </div>
+                            </div>
+                            <div class="z-10 w-12 h-12 bg-forest-600 rounded-full flex items-center justify-center text-white border-4 border-white shadow-lg transform group-hover:scale-110 transition-transform animate-pulse">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"></path></svg>
+                            </div>
+                            <div class="w-5/12"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 bg-forest-50">
+            <div class="container mx-auto px-6">
+                <h2 class="font-serif text-4xl text-center text-forest-800 mb-16 reveal-up">Moment Bahagia</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <img src="assets/foreverr.id_xr2tl.webp" class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
+                    <img src="assets/foreverr.id_zrm9k (1).png" class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
+                    <img src="assets/header-main-bg.webp" class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
+                    <img src="assets/main-bg.webp" class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
+                    <img src="assets/rsvp-bg.png" class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
+                    <img src="assets/Web Wedding.png" class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
+                </div>
+            </div>
+        </section>
+
+        <!-- Gift Section -->
+        <section id="gift" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-serif text-4xl text-forest-800 mb-6 reveal-up">Kado Digital</h2>
+                <p class="text-gray-600 mb-12 reveal-up">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberi kado, kami sediakan fitur berikut:</p>
+                
+                <button id="btnShowGift" class="px-8 py-3 bg-forest-700 text-white rounded-full shadow-lg hover:bg-forest-800 transition-all reveal-up">
+                    Kirim Hadiah
+                </button>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section id="wishes" class="py-24 bg-white relative overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="assets/rsvp-bg.webp" class="w-full h-full object-cover opacity-20" alt="">
+            </div>
+            <div class="container mx-auto px-6 max-w-2xl relative z-10">
+                <div class="bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-2xl border border-forest-100">
+                    <h2 class="font-serif text-4xl text-center text-forest-800 mb-4 reveal-up">Ucapan & Doa</h2>
+                    <p class="text-center text-forest-600 mb-10 reveal-up">Berikan ucapan manis dan konfirmasi kehadiran Anda</p>
+                    
+                    <form id="rsvpForm" class="space-y-6 reveal-up">
+                        <div class="space-y-1">
+                            <label class="text-xs uppercase tracking-widest font-bold text-forest-700 ml-1">Nama Lengkap</label>
+                            <input type="text" placeholder="Masukkan nama Anda" class="w-full px-6 py-4 rounded-xl bg-forest-50 border border-forest-100 focus:outline-none focus:border-forest-400 focus:ring-2 focus:ring-forest-100 transition-all text-forest-900 placeholder-forest-300" required>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs uppercase tracking-widest font-bold text-forest-700 ml-1">Pesan / Ucapan</label>
+                            <textarea placeholder="Tuliskan ucapan & doa restu Anda..." rows="4" class="w-full px-6 py-4 rounded-xl bg-forest-50 border border-forest-100 focus:outline-none focus:border-forest-400 focus:ring-2 focus:ring-forest-100 transition-all text-forest-900 placeholder-forest-300" required></textarea>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs uppercase tracking-widest font-bold text-forest-700 ml-1">Konfirmasi Kehadiran</label>
+                            <select class="w-full px-6 py-4 rounded-xl bg-forest-50 border border-forest-100 focus:outline-none focus:border-forest-400 focus:ring-2 focus:ring-forest-100 transition-all text-forest-900 appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%234d754d%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E')] bg-[length:20px] bg-[right_1.5rem_center] bg-no-repeat">
+                                <option value="hadir">Sangat Senang, Saya Akan Hadir</option>
+                                <option value="tidak">Maaf, Saya Tidak Bisa Hadir</option>
+                                <option value="ragu">Masih Dalam Pertimbangan</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-forest-700 text-white font-bold rounded-xl shadow-lg hover:bg-forest-800 transform hover:-translate-y-0.5 transition-all">
+                            Kirim Ucapan & Konfirmasi
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-10 bg-forest-900 text-white text-center">
+            <p class="font-serif text-2xl mb-4">Arumi & Rendy</p>
+            <p class="text-sm opacity-60 italic">Created with &hearts; by Foreverr</p>
+        </footer>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav id="bottomNav" class="fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-t border-gray-200 transform translate-y-full transition-transform duration-500">
+        <div class="flex justify-around items-center py-2 px-4">
+            <a href="#home" class="flex flex-col items-center text-forest-600 hover:text-forest-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                <span class="text-[10px] uppercase">Home</span>
+            </a>
+            <a href="#couple" class="flex flex-col items-center text-forest-600 hover:text-forest-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                <span class="text-[10px] uppercase">Couple</span>
+            </a>
+            <a href="#event" class="flex flex-col items-center text-forest-600 hover:text-forest-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span class="text-[10px] uppercase">Event</span>
+            </a>
+            <a href="#gallery" class="flex flex-col items-center text-forest-600 hover:text-forest-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <span class="text-[10px] uppercase">Gallery</span>
+            </a>
+            <a href="#wishes" class="flex flex-col items-center text-forest-600 hover:text-forest-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                <span class="text-[10px] uppercase">Wishes</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Gift Modal -->
+    <div id="giftModal" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-6 transform scale-90 transition-transform duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-serif text-2xl text-forest-800">Rekening Kami</h3>
+                <button id="btnCloseGift" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-forest-50 p-4 rounded-xl border border-forest-100">
+                    <p class="text-xs uppercase text-forest-600 font-bold mb-1">Bank BCA</p>
+                    <p class="text-lg font-mono text-forest-900 mb-2">1234567890</p>
+                    <p class="text-sm text-forest-600 mb-3">a.n Rendy Hanif</p>
+                    <button onclick="copyToClipboard('1234567890')" class="w-full py-2 bg-forest-700 text-white text-sm rounded-lg hover:bg-forest-800 transition-colors">Salin No. Rekening</button>
+                </div>
+                <div class="bg-forest-50 p-4 rounded-xl border border-forest-100">
+                    <p class="text-xs uppercase text-forest-600 font-bold mb-1">Bank Mandiri</p>
+                    <p class="text-lg font-mono text-forest-900 mb-2">0987654321</p>
+                    <p class="text-sm text-forest-600 mb-3">a.n Arumi Shalwa</p>
+                    <button onclick="copyToClipboard('0987654321')" class="w-full py-2 bg-forest-700 text-white text-sm rounded-lg hover:bg-forest-800 transition-colors">Salin No. Rekening</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Control Button -->
+    <button id="btnAudio" class="fixed bottom-24 right-6 z-50 w-12 h-12 bg-white/80 backdrop-blur-md rounded-full shadow-lg flex items-center justify-center text-forest-700 opacity-0 transition-opacity duration-500">
+        <svg id="iconPlay" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <svg id="iconPause" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script>
+        // guest name logic
+        const urlParams = new URLSearchParams(window.location.search);
+        const guestName = urlParams.get('to');
+        if (guestName) {
+            document.getElementById('guestName').innerText = guestName;
+        }
+
+        // Opening Logic
+        const btnOpen = document.getElementById('btnOpen');
+        const cover = document.getElementById('cover');
+        const mainContent = document.getElementById('mainContent');
+        const bgMusic = document.getElementById('bgMusic');
+        const bottomNav = document.getElementById('bottomNav');
+        const btnAudio = document.getElementById('btnAudio');
+
+        btnOpen.addEventListener('click', () => {
+            cover.classList.add('opacity-0');
+            setTimeout(() => {
+                cover.style.display = 'none';
+                document.body.classList.remove('locked');
+                mainContent.classList.remove('opacity-0');
+                bottomNav.classList.remove('translate-y-full');
+                btnAudio.classList.remove('opacity-0');
+                
+                // Audio Play
+                bgMusic.play().catch(e => console.log("Autoplay blocked or failed"));
+                
+                // Trigger first animations
+                observer.toTrigger();
+            }, 1000);
+        });
+
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up, .reveal-zoom').forEach(el => observer.observe(el));
+
+        // Countdown Timer
+        const targetDate = new Date("May 10, 2026 08:00:00").getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            
+            if (distance < 0) return;
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = d.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Progress Line Logic
+        window.addEventListener('scroll', () => {
+            const storySection = document.getElementById('story');
+            const storyTop = storySection.offsetTop;
+            const storyHeight = storySection.offsetHeight;
+            const scrollPos = window.scrollY + window.innerHeight / 2;
+            
+            if (scrollPos > storyTop && scrollPos < storyTop + storyHeight) {
+                const progress = ((scrollPos - storyTop) / storyHeight) * 100;
+                document.getElementById('progressLine').style.height = `${Math.min(progress, 100)}%`;
+            }
+        });
+
+        // Gift Modal Logic
+        const btnShowGift = document.getElementById('btnShowGift');
+        const btnCloseGift = document.getElementById('btnCloseGift');
+        const giftModal = document.getElementById('giftModal');
+        const modalContent = giftModal.querySelector('div');
+
+        btnShowGift.addEventListener('click', () => {
+            giftModal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-90');
+        });
+
+        btnCloseGift.addEventListener('click', () => {
+            giftModal.classList.add('opacity-0', 'pointer-events-none');
+            modalContent.classList.add('scale-90');
+        });
+
+        window.onclick = (event) => {
+            if (event.target == giftModal) {
+                btnCloseGift.click();
+            }
+        };
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            alert('Nomor rekening berhasil disalin!');
+        }
+
+        // Audio Control Logic
+        btnAudio.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                document.getElementById('iconPlay').classList.add('hidden');
+                document.getElementById('iconPause').classList.remove('hidden');
+            } else {
+                bgMusic.pause();
+                document.getElementById('iconPlay').classList.remove('hidden');
+                document.getElementById('iconPause').classList.add('hidden');
+            }
+        });
+
+        // Lottie Animation
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-bird'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://foreverr.id/theme/art/ar-012/bird.json'
+        });
+
+        // Scroll Spy for Nav Highlighting (Simple)
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#bottomNav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-forest-900', 'font-bold');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('text-forest-900', 'font-bold');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
