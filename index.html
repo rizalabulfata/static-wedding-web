@@ -43,9 +43,14 @@
                                 transform: 'translateY(0)',
                             },
                         },
+                        cloudMove: {
+                            '0%': { transform: 'translateX(-120%)' },
+                            '100%': { transform: 'translateX(200%)' },
+                        },
                     },
                     animation: {
                         'fade-up': 'fadeUp 1.2s ease-out forwards',
+                        'cloud-slow': 'cloudMove 12s linear infinite',
                     },
                 }
             }
@@ -92,6 +97,18 @@
 
         .bg-forest-second {
             background-image: url('assets/bg-akad-resepsi-info.webp');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bg-forest-two {
+            background-image: url('assets/bg-2.webp');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bg-forest-three {
+            background-image: url('assets/bg-3.webp');
             background-size: cover;
             background-position: center;
         }
@@ -184,7 +201,7 @@
 
     <!-- LEFT PANEL (desktop only) -->
     <div id="desktopLeft" class="hidden md:flex flex-1 relative overflow-hidden">
-        <img src="assets/ARV_9022.JPG.webp" class="w-full h-full object-cover" alt="">
+        <img src="assets/ARV_9022.JPG_2.webp" class="w-full h-full object-cover" alt="">
         <!-- Optional overlay branding -->
         <div class="absolute bottom-16 left-12 text-white">
             <p class="text-sm tracking-[0.3em] uppercase font-light mb-2">The Wedding of</p>
@@ -205,12 +222,11 @@
         <section id="cover"
             class="fixed inset-0 z-[100] flex flex-col items-center bg-forest-pattern transition-opacity duration-1000">
             <img src="assets/butterfly-second.webp"
-                class="absolute bottom-40 right-10 z-40 w-20 animate-bounce opacity-60" alt="">
+                class="absolute bottom-40 right-10 z-40 w-20 animate-fade-up opacity-60" alt="">
 
             <!-- Floating Assets -->
-            <img src="assets/header-main-bg.webp" class="absolute top-0 left-0 w-32 md:w-48 opacity-80" alt="">
-            <img src="assets/header-main-bg.webp" class="absolute bottom-0 right-0 w-32 md:w-48 opacity-80 rotate-180"
-                alt="">
+            <img src="assets/cloud.webp" class="absolute top-10 w-32 animate-cloud-slow" alt="Animated Cloud">
+            <img src="assets/header-main-bg.webp" class="absolute top-0 left-0 w-82 md:w-58" alt="">
 
             <!-- Top: Title + Date (absolute so it doesn't affect flow) -->
             <div class="absolute top-40 left-0 right-0 text-center z-10 text-white">
@@ -248,11 +264,16 @@
             <div class="section-footer w-full">
 
                 <!-- Bird -->
-                <img src="assets/footer-bird.webp" class="w-56 md:w-72 mx-auto relative translate-y-60" />
-
+                <!-- Bird Wrapper handles the final position -->
+                <div class="relative translate-y-60">
+                    <!-- Image handles the animation -->
+                    <img src="assets/footer-bird.webp"
+                        class="w-56 md:w-72 mx-auto animate-fade-up [animation-delay:0.4s] opacity-0"
+                        alt="Footer Bird" />
+                </div>
                 <!-- Flowers -->
                 <img src="assets/main-footer.webp" class="w-full h-auto object-cover opacity-90 -mt-20
-               animate-fade-up [animation-delay:0.4s] opacity-0" />
+               animate-fade-up opacity-0" />
 
             </div>
         </section>
@@ -415,7 +436,7 @@
 
             <!-- Resepsi info section -->
             <section id="resepsi-info"
-                class="min-h-screen flex flex-col items-center justify-center bg-forest-second relative overflow-hidden">
+                class="min-h-screen flex flex-col items-center justify-center bg-forest-two relative overflow-hidden">
 
                 <!-- Floating Decorations -->
                 <img src="assets/butterfly-one.webp" class="absolute top-20 left-4 w-12 animate-pulse opacity-70 z-10"
@@ -488,16 +509,11 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Footer flowers -->
-                <div class="section-footer w-full">
-                    <img src="assets/main-footer.webp" class="w-full h-auto object-cover opacity-80" alt="">
-                </div>
             </section>
 
             <!-- Event Section -->
             <section id="event"
-                class="min-h-screen flex flex-col items-center justify-center bg-forest-second relative overflow-hidden py-10">
+                class="min-h-screen flex flex-col items-center justify-center bg-forest-two relative overflow-hidden py-10">
 
                 <!-- Floating Decorations -->
                 <img src="assets/butterfly-one.webp" class="absolute top-16 left-4 w-12 animate-pulse opacity-70 z-10"
@@ -526,7 +542,7 @@
                             <!-- Couple photo circle with Gold Border to match Image 2 -->
                             <div
                                 class="w-44 h-44 rounded-full overflow-hidden border-[6px] border-[#c2b280] shadow-2xl mb-8">
-                                <img src="assets/ARV_9022.JPG.webp" class="w-full h-full object-cover" alt="Couple">
+                                <img src="assets/ARV_9022.JPG_2.webp" class="w-full h-full object-cover" alt="Couple">
                             </div>
 
                             <!-- Countdown boxes: Updated to Gold Background + White Text -->
@@ -578,11 +594,6 @@
                         </div>
                     </div>
 
-                </div>
-
-                <!-- Footer flowers -->
-                <div class="section-footer w-full">
-                    <img src="assets/main-footer.webp" class="w-full h-auto object-cover opacity-80" alt="">
                 </div>
             </section>
 
@@ -717,29 +728,57 @@
             </section>
 
             <!-- Gallery Section -->
-            <section id="gallery" class="py-32 bg-forest-50 relative overflow-hidden">
-                <div class="container mx-auto px-6 mb-24">
-                    <h2
-                        class="font-serif text-4xl text-center text-forest-800 mb-16 reveal-up uppercase tracking-widest">
-                        Moment Bahagia</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <img src="assets/foreverr.id_xr2tl.webp"
-                            class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
-                        <img src="assets/foreverr.id_zrm9k (1).png"
-                            class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
-                        <img src="assets/header-main-bg.webp"
-                            class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
-                        <img src="assets/main-bg.webp"
-                            class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
-                        <img src="assets/rsvp-bg.png"
-                            class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
-                        <img src="assets/foreverr.id_xr2tl.webp"
-                            class="w-full aspect-square object-cover rounded-lg shadow-md reveal-zoom" alt="">
+            <section id="gallery" class="pt-24 pb-60 bg-forest-pattern relative overflow-hidden">
+                <!-- Title -->
+                <div class="container mx-auto px-4 mb-10 relative z-10 text-center">
+                    <h2 class="font-violetbee text-5xl text-white drop-shadow-md">Our Galery</h2>
+                </div>
+
+                <!-- Main Grid: 50/50 Split with Unified Gap 2 -->
+                <div class="container mx-auto px-4 grid grid-cols-1 gap-2 relative z-10 max-w-[420px]">
+
+                    <!-- Row 1: Top Wide Image -->
+                    <div class="reveal-zoom">
+                        <img src="assets/foto/collage-1-top.webp" class="w-full h-auto block" alt="Couple Traditional">
+                    </div>
+
+                    <!-- Row 2: Cluster (Left) + Large Portrait (Right) -->
+                    <div class="grid grid-cols-2 gap-2 items-stretch">
+                        <div class="grid grid-cols-2 gap-2">
+                            <img src="assets/foto/collage-1.webp" class="w-full h-full object-cover reveal-zoom block">
+                            <img src="assets/foto/collage-2.webp" class="w-full h-full object-cover reveal-zoom block">
+                            <img src="assets/foto/collage-3.webp" class="w-full h-full object-cover reveal-zoom block">
+                            <img src="assets/foto/collage-4.webp" class="w-full h-full object-cover reveal-zoom block">
+                        </div>
+                        <div class="reveal-zoom">
+                            <img src="assets/foto/collage-5.webp" class="w-full h-full object-cover block">
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Large Portrait (Left) + Cluster (Right) -->
+                    <div class="grid grid-cols-2 gap-2 items-stretch">
+                        <div class="reveal-zoom">
+                            <img src="assets/foto/collage-6.webp" class="w-full h-full object-cover block">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <img src="assets/foto/collage-7.webp" class="w-full h-full object-cover reveal-zoom block">
+                            <img src="assets/foto/collage-8.webp" class="w-full h-full object-cover reveal-zoom block">
+                            <img src="assets/foto/collage-9.webp" class="w-full h-full object-cover reveal-zoom block">
+                            <img src="assets/foto/collage-10.webp" class="w-full h-full object-cover reveal-zoom block">
+                        </div>
                     </div>
                 </div>
 
-                <div class="section-footer">
-                    <img src="assets/main-footer.webp" class="w-full h-auto object-cover opacity-80" alt="">
+                <!-- Footer Decoration: Positioned closer to grid -->
+                <div class="section-footer w-full">
+
+                    <!-- Bird -->
+                    <img src="assets/footer-bird.webp" class="w-56 md:w-72 mx-auto relative translate-y-60" />
+
+                    <!-- Flowers -->
+                    <img src="assets/main-footer.webp"
+                        class="w-full h-auto object-cover opacity-90 -mt-20 animate-fade-up [animation-delay:0.4s] opacity-0" />
+
                 </div>
             </section>
 
@@ -764,75 +803,131 @@
                 </div>
             </section>
 
-            <!-- RSVP Section -->
-            <section id="wishes" class="py-32 bg-white relative overflow-hidden">
-                <div class="absolute inset-0 z-0">
-                    <img src="assets/rsvp-bg.webp" class="w-full h-full object-cover opacity-20" alt="">
-                </div>
-                <div class="container mx-auto px-6 max-w-2xl relative z-10 mb-24">
-                    <div
-                        class="bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-2xl border border-forest-100">
-                        <h2 class="font-serif text-4xl text-center text-forest-800 mb-4 reveal-up">Ucapan & Doa</h2>
-                        <p class="text-center text-forest-600 mb-10 reveal-up">Berikan ucapan manis dan konfirmasi
-                            kehadiran
-                            Anda</p>
+            <!-- RSVP / Wishes Section -->
+            <section id="wishes"
+                class="py-20 bg-forest-pattern relative overflow-hidden min-h-screen flex items-center justify-center">
 
-                        <form id="rsvpForm" class="space-y-6 reveal-up">
-                            <div class="space-y-1">
-                                <label class="text-xs uppercase tracking-widest font-bold text-forest-700 ml-1">Nama
-                                    Lengkap</label>
-                                <input type="text" placeholder="Masukkan nama Anda"
-                                    class="w-full px-6 py-4 rounded-xl bg-forest-50 border border-forest-100 focus:outline-none focus:border-forest-400 focus:ring-2 focus:ring-forest-100 transition-all text-forest-900 placeholder-forest-300"
-                                    required>
-                            </div>
-                            <div class="space-y-1">
-                                <label class="text-xs uppercase tracking-widest font-bold text-forest-700 ml-1">Pesan /
-                                    Ucapan</label>
-                                <textarea placeholder="Tuliskan ucapan & doa restu Anda..." rows="4"
-                                    class="w-full px-6 py-4 rounded-xl bg-forest-50 border border-forest-100 focus:outline-none focus:border-forest-400 focus:ring-2 focus:ring-forest-100 transition-all text-forest-900 placeholder-forest-300"
-                                    required></textarea>
-                            </div>
-                            <div class="space-y-1">
-                                <label
-                                    class="text-xs uppercase tracking-widest font-bold text-forest-700 ml-1">Konfirmasi
-                                    Kehadiran</label>
-                                <select
-                                    class="w-full px-6 py-4 rounded-xl bg-forest-50 border border-forest-100 focus:outline-none focus:border-forest-400 focus:ring-2 focus:ring-forest-100 transition-all text-forest-900 appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%234d754d%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%209l6%206%206-6%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E')] bg-[length:20px] bg-[right_1.5rem_center] bg-no-repeat">
-                                    <option value="hadir">Sangat Senang, Saya Akan Hadir</option>
-                                    <option value="tidak">Maaf, Saya Tidak Bisa Hadir</option>
-                                    <option value="ragu">Masih Dalam Pertimbangan</option>
-                                </select>
-                            </div>
-                            <button type="submit"
-                                class="w-full py-4 bg-forest-700 text-white font-bold rounded-xl shadow-lg hover:bg-forest-800 transform hover:-translate-y-0.5 transition-all">
-                                Kirim Ucapan & Konfirmasi
+                <!-- Stone Arch Frame (Asset from image_17.png) -->
+                <div class="absolute inset-0 z-0 flex justify-center items-center pointer-events-none">
+                    <img src="assets/wishes-stone-arch.webp" class="h-auto w-auto object-contain " alt="">
+                </div>
+
+                <!-- Cream Insert (Asset from image_18.png) -->
+                <div class="absolute inset-0 z-10 flex justify-center items-center pointer-events-none">
+                    <img src="assets/wishes-cream-arch.svg" class="h-[62%] w-auto mt-4 object-contain"
+                        alt="Cream Arch Insert">
+                </div>
+
+                <!-- Content Container (Smaller max-width and tighter text) -->
+                <div class="relative z-20 w-full max-w-xs text-center px-2 -mt-22">
+
+                    <!-- Title and Subtitle (Scaled down) -->
+                    <h2 class="font-sans font-black text-3xl text-[#1a2b1a] mb-0 tracking-tight reveal-up uppercase">
+                        Wishes</h2>
+                    <p class="text-[#1a2b1a] text-[9px] font-bold mb-5 reveal-up tracking-tight">Ucapan Selamat &
+                        Konfirmasi Kehadiran</p>
+
+                    <!-- RSVP Form (Slimmer inputs) -->
+                    <form id="rsvpForm" class="space-y-2 mb-4 reveal-up">
+                        <!-- Name Input -->
+                        <input type="text" placeholder="Nama"
+                            class="w-full h-9 rounded-lg bg-[#1a2b1a] text-white/90 placeholder:text-white/60 px-4 text-[11px] font-light focus:outline-none focus:ring-1 focus:ring-white/20 transition-all">
+
+                        <!-- Message Textarea -->
+                        <textarea placeholder="Ucapan...." rows="4"
+                            class="w-full rounded-lg bg-[#1a2b1a] text-white/90 placeholder:text-white/60 p-4 text-[11px] font-light focus:outline-none focus:ring-1 focus:ring-white/20 transition-all"></textarea>
+
+                        <!-- Attendance Buttons (Side-by-side) -->
+                        <div class="grid grid-cols-2 gap-2">
+                            <button type="button"
+                                class="w-full h-8 flex items-center justify-center gap-1.5 rounded-md bg-[#1a2b1a] text-white transition-colors">
+                                <span class="text-[10px]">❌</span>
+                                <span class="text-[9px] font-bold uppercase tracking-tighter">Tidak Hadir</span>
                             </button>
-                        </form>
+                            <button type="button"
+                                class="w-full h-8 flex items-center justify-center gap-1.5 rounded-md bg-[#1a2b1a] text-white transition-colors">
+                                <span class="text-[10px]">✅</span>
+                                <span class="text-[9px] font-bold uppercase tracking-tighter">Hadir</span>
+                            </button>
+                        </div>
+
+                        <!-- Submit Button (Full width below) -->
+                        <button type="submit"
+                            class="w-full h-8 rounded-md bg-[#1a2b1a] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-forest-900 transition-all">
+                            Kirim
+                        </button>
+                    </form>
+
+                    <!-- Wishes List Container (Matches the darker background in image) -->
+                    <div class="bg-[#1a2b1a] rounded-xl p-4 space-y-2.5 reveal-up shadow-xl">
+                        <div class="w-full h-11 rounded-lg bg-[#abb5a5]/40"></div>
+                        <div class="w-full h-11 rounded-lg bg-[#abb5a5]/40"></div>
+                        <div class="w-full h-11 rounded-lg bg-[#abb5a5]/40"></div>
                     </div>
+
                 </div>
 
-                <div class="section-footer">
-                    <img src="assets/main-footer.webp" class="w-full h-auto object-cover opacity-80" alt="">
+                <!-- Footer peacock and flowers decoration -->
+                <div class="section-footer w-full">
+
+                    <!-- Bird -->
+                    <img src="assets/footer-bird.webp" class="w-56 md:w-72 mx-auto relative translate-y-60" />
+
+                    <!-- Flowers -->
+                    <img src="assets/main-footer.webp" class="w-full h-auto object-cover opacity-90 -mt-20
+               animate-fade-up [animation-delay:0.4s] opacity-0" />
+
                 </div>
             </section>
 
-            <!-- Final Footer -->
-            <footer class="relative bg-white pt-20 pb-40 overflow-hidden">
-                <div class="container mx-auto px-6 text-center relative z-10">
-                    <div class="reveal-up mb-8">
-                        <img src="assets/footer-bird.webp" class="w-48 md:w-64 mx-auto" alt="Decorative Bird">
+            <!-- Final Footer Section -->
+            <footer id="footer"
+                class="min-h-screen flex flex-col items-center justify-start pt-16 bg-forest-three relative overflow-hidden">
+
+                <!-- Floating Decorations -->
+                <img src="assets/butterfly-one.webp" class="absolute top-20 left-4 w-12 animate-pulse opacity-70 z-10"
+                    alt="">
+                <img src="assets/cloud.webp" class="absolute top-6 right-6 w-28 opacity-40 z-10" alt="">
+
+                <!-- Main Content Container (Removed justify-center to move content up) -->
+                <div class="relative z-20 w-full flex flex-col items-center px-6 ">
+
+                    <!-- Arched Photo Container -->
+                    <div class="relative w-full max-w-[280px] mb-8 reveal-zoom">
+                        <!-- The arch border / photo asset -->
+                        <img src="assets/foto/closing-photo.webp" class="w-full h-auto object-contain relative z-10"
+                            alt="Closing Photo">
                     </div>
-                    <h2 class="font-serif text-4xl md:text-5xl text-forest-800 mb-4 reveal-up">Mila & Rizal</h2>
-                    <p class="text-forest-600 mb-8 reveal-up italic">“Sampai bertemu di hari bahagia kami”</p>
-                    <div class="reveal-up">
-                        <p class="text-sm text-gray-400 uppercase tracking-widest">&copy; 2026 Mila & Rizal. Created
-                            with
-                            &hearts; by Foreverr</p>
+
+                    <!-- Closing Message Section -->
+                    <div class="text-center text-white max-w-xs reveal-up">
+                        <p class="text-[13px] leading-relaxed mb-6 font-medium">
+                            Suatu kebahagiaan & kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan
+                            memberikan do'a restu kepada kami
+                        </p>
+
+                        <p class="text-[14px]font-medium">
+                            Wassalamu'alaikum Wr. Wb.
+                        </p>
+
+                        <p class="text-[13px] font-medium">
+                            Kami yang berbahagia
+                        </p>
+
+                        <!-- Script names matching the reference -->
+                        <h2 class="font-violetbee text-5xl mt-2 drop-shadow-lg">Rizal & Mila</h2>
                     </div>
+
                 </div>
 
-                <div class="section-footer">
-                    <img src="assets/main-footer.webp" class="w-full h-auto object-cover opacity-80" alt="">
+                <!-- Integrated Footer Layers -->
+                <div class="section-footer w-full">
+                    <!-- Bird -->
+                    <img src="assets/footer-bird.webp" class="w-56 md:w-72 mx-auto relative translate-y-60" />
+
+                    <!-- Flowers -->
+                    <img src="assets/main-footer.webp" class="w-full h-auto object-cover opacity-90 -mt-20
+   animate-fade-up [animation-delay:0.4s] opacity-0" />
                 </div>
             </footer>
 
