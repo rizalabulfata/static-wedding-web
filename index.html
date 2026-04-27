@@ -9,192 +9,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap"
         rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        serif: ['Cormorant Garamond', 'serif'],
-                        sans: ['Montserrat', 'sans-serif'],
-                        violetbee: ['VioletBee']
-                    },
-                    colors: {
-                        forest: {
-                            50: '#f2f7f2',
-                            100: '#e1ede1',
-                            200: '#c5dbc5',
-                            300: '#9aba9a',
-                            400: '#6d946d',
-                            500: '#4d754d',
-                            600: '#3c5c3c',
-                            700: '#324a32',
-                            800: '#2a3c2a',
-                            900: '#243324',
-                        }
-                    },
-                    keyframes: {
-                        fadeUp: {
-                            '0%': {
-                                opacity: '0',
-                                transform: 'translateY(60px)',
-                            },
-                            '100%': {
-                                opacity: '1',
-                                transform: 'translateY(0)',
-                            },
-                        },
-                        cloudMove: {
-                            '0%': { transform: 'translateX(-120%)' },
-                            '100%': { transform: 'translateX(200%)' },
-                        },
-                    },
-                    animation: {
-                        'fade-up': 'fadeUp 1.2s ease-out forwards',
-                        'cloud-slow': 'cloudMove 12s linear infinite',
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Fonts Section */
-        @font-face {
-            font-family: 'VioletBee';
-            src: url('assets/fonts/Violet_Bee.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /* end Fonts Section */
-
-        .locked {
-            overflow: hidden;
-            height: 100vh;
-        }
-
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.7s ease-out;
-        }
-
-        .reveal-zoom {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.7s ease-out;
-        }
-
-        .is-active {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .bg-forest-pattern {
-            background-image: url('assets/main-bg.webp');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .bg-forest-second {
-            background-image: url('assets/bg-akad-resepsi-info.webp');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .bg-forest-two {
-            background-image: url('assets/bg-2.webp');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .bg-forest-three {
-            background-image: url('assets/bg-3.webp');
-            background-size: cover;
-            background-position: center;
-        }
-
-        @keyframes spin-slow {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .animate-spin-slow {
-            animation: spin-slow 8s linear infinite;
-        }
-
-        /* Custom section footer */
-        .section-footer {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            pointer-events: none;
-            z-index: 5;
-        }
-
-        @media (min-width: 768px) {
-            body {
-                display: flex;
-                height: 100vh;
-                overflow: hidden;
-            }
-
-            #desktopRight {
-                width: 390px;
-                min-width: 390px;
-                height: 100vh;
-                position: relative;
-                overflow: hidden;
-                /* locked by default */
-                box-shadow: -8px 0 40px rgba(0, 0, 0, 0.3);
-            }
-
-            /* unlocked state — added by JS after button click */
-            #desktopRight.unlocked {
-                overflow-y: auto;
-                overflow-x: hidden;
-            }
-
-            #desktopRight #cover {
-                position: absolute;
-                width: 390px;
-                height: 100%;
-                top: 0;
-                left: 0;
-            }
-
-            #desktopRight #giftModal {
-                position: absolute;
-                width: 390px;
-                height: 100%;
-                top: 0;
-                left: 0;
-            }
-
-            #desktopRight #bottomNav {
-                position: fixed;
-                left: auto;
-                right: 0;
-                width: 390px;
-                transform: translateY(200%) !important;
-            }
-
-            #desktopRight #bottomNav.nav-visible {
-                transform: none !important;
-            }
-
-            #desktopRight #btnAudio {
-                position: fixed;
-                right: 6px;
-                bottom: 96px;
-            }
-        }
-    </style>
+    <script src="tailwind.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body class="font-sans text-gray-800 locked">
@@ -215,7 +31,7 @@
     <div id="desktopRight">
         <!-- Audio Element -->
         <audio id="bgMusic" loop>
-            <source src="https://s2.foreverr.id/assets/music/penjaga-hati.mp3" type="audio/mpeg">
+            <source src="assets/bg-sound.mp3" type="audio/mpeg">
         </audio>
 
         <!-- Cover Section -->
@@ -296,7 +112,7 @@
                     <h2 class="font-serif text-2xl md:text-3xl text-white mb-2 reveal-up">The Wedding of</h2>
                     <h1 class="font-violetbee text-6xl md:text-9xl text-white mb-6 reveal-up">Rizal & Mila</h1>
 
-                    <div class="reveal-zoom mb-8 translate-y-10">
+                    <div class="animate-fade-up mb-8 translate-y-10">
                         <div class="relative inline-block">
                             <img src="assets/foto/main-content-cover.webp"
                                 class="w-100 h-100 md:w-80 md:h-80 mx-auto object-cover" alt="Couple">
@@ -444,7 +260,73 @@
                 <img src="assets/cloud.webp" class="absolute top-6 right-6 w-28 opacity-40 z-10" alt="">
 
                 <!-- Arch Card -->
-                <div class="relative z-20 w-full flex items-center justify-center px-5 py-10">
+                <div class="reveal-right relative z-20 w-full flex items-center justify-center px-5 py-10">
+
+                    <!-- SVG border as background layer -->
+                    <div class="relative w-full max-w-[320px]">
+
+                        <!-- The arch border SVG -->
+                        <img src="assets/foto/border-akad-resepsi-info.webp"
+                            class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none" alt="">
+
+                        <!-- Content layered on top of the SVG -->
+                        <div class="relative z-10 flex flex-col items-center text-center px-10 pt-16 pb-16"
+                            style="min-height: 520px;">
+
+                            <!-- Flower decoration top -->
+                            <div class="mb-3">
+                                <img src="assets/foto/flower-white.webp" class="w-20 h-auto opacity-80 mx-auto" alt="">
+                            </div>
+
+                            <!-- Script title -->
+                            <h2 class="font-violetbee text-4xl text-white mb-2 drop-shadow">Akad Nikah</h2>
+
+                            <!-- Day & Date -->
+                            <p class="text-white font-bold text-base tracking-widest uppercase mt-1">Selasa</p>
+                            <p class="text-white font-bold text-base tracking-widest">02 Juni 2026</p>
+
+                            <!-- Time -->
+                            <p class="text-white/80 text-sm mt-1">Pukul 07.00 – Selesai</p>
+
+                            <!-- Divider -->
+                            <div class="w-24 h-px bg-white/50 my-4"></div>
+
+                            <!-- Location icon -->
+                            <svg class="w-6 h-6 text-white mb-2" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                            </svg>
+
+                            <!-- Venue name -->
+                            <p class="text-white font-bold text-base leading-snug">Rumah Mempelai Wanita</p>
+
+                            <!-- Venue address -->
+                            <p class="text-white/80 text-xs mt-1 leading-relaxed">
+                                Dusun Tonggal, Desa Meddelan,<br>Lenteng Sumenep
+                            </p>
+
+                            <!-- Maps button -->
+                            <a href="https://goo.gl/maps/xyz" target="_blank"
+                                class="mt-5 inline-flex items-center gap-2 px-5 py-2 rounded-full text-forest-800 text-xs font-semibold shadow"
+                                style="background: rgba(255,255,255,0.85);">
+                                <svg class="w-3.5 h-3.5 text-forest-600" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                                </svg>
+                                Buka Maps
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal-left relative z-20 w-full flex items-center justify-center px-5 py-10">
 
                     <!-- SVG border as background layer -->
                     <div class="relative w-full max-w-[320px]">
@@ -509,6 +391,7 @@
                         </div>
                     </div>
                 </div>
+
             </section>
 
             <!-- Event Section -->
@@ -525,7 +408,7 @@
                 <div class="relative z-20 w-full flex flex-col items-center justify-center px-5">
 
                     <!-- SVG Border Card -->
-                    <div class="relative w-full max-w-[340px]">
+                    <div class="reveal-zoom relative w-full max-w-[340px]">
 
                         <!-- Octagon Border image -->
                         <img src="assets/foto/border-save-date.webp"
@@ -1075,168 +958,7 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-    <script>
-        // guest name logic
-        const urlParams = new URLSearchParams(window.location.search);
-        const guestName = urlParams.get('to');
-        if (guestName) {
-            document.getElementById('guestName').innerText = guestName;
-        }
-
-        // Opening Logic
-        const btnOpen = document.getElementById('btnOpen');
-        const cover = document.getElementById('cover');
-        const mainContent = document.getElementById('mainContent');
-        const bgMusic = document.getElementById('bgMusic');
-        const bottomNav = document.getElementById('bottomNav');
-        const btnAudio = document.getElementById('btnAudio');
-
-        btnOpen.addEventListener('click', () => {
-            cover.classList.add('opacity-0');
-            setTimeout(() => {
-                cover.style.display = 'none';
-                document.body.classList.remove('locked');
-                mainContent.classList.remove('opacity-0');
-                btnAudio.classList.remove('opacity-0');
-
-                // Mobile nav show
-                bottomNav.classList.remove('translate-y-[200%]');
-                // Desktop nav show
-                bottomNav.classList.add('nav-visible');
-
-                // Unlock right panel scroll on desktop
-                const desktopRight = document.getElementById('desktopRight');
-                desktopRight.classList.add('unlocked');
-
-                bgMusic.play().catch(e => console.log("Autoplay blocked"));
-            }, 1000);
-        });
-
-        // Intersection Observer for Reveal Animations
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal-up, .reveal-zoom').forEach(el => observer.observe(el));
-
-        // Countdown Timer
-        const targetDate = new Date("June 02, 2026 08:00:00").getTime();
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance < 0) return;
-
-            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = d.toString().padStart(2, '0');
-            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-
-
-        // Gift Modal Logic
-        const btnShowGift = document.getElementById('btnShowGift');
-        const btnCloseGift = document.getElementById('btnCloseGift');
-        const giftModal = document.getElementById('giftModal');
-        const modalContent = giftModal.querySelector('div');
-
-        btnShowGift.addEventListener('click', () => {
-            giftModal.classList.remove('opacity-0', 'pointer-events-none');
-            modalContent.classList.remove('scale-90');
-        });
-
-        btnCloseGift.addEventListener('click', () => {
-            giftModal.classList.add('opacity-0', 'pointer-events-none');
-            modalContent.classList.add('scale-90');
-        });
-
-        window.onclick = (event) => {
-            if (event.target == giftModal) {
-                btnCloseGift.click();
-            }
-        };
-
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text);
-            alert('Nomor rekening berhasil disalin!');
-        }
-
-        // Audio Control Logic
-        btnAudio.addEventListener('click', () => {
-            if (bgMusic.paused) {
-                bgMusic.play();
-                document.getElementById('iconPlay').classList.add('hidden');
-                document.getElementById('iconPause').classList.remove('hidden');
-            } else {
-                bgMusic.pause();
-                document.getElementById('iconPlay').classList.remove('hidden');
-                document.getElementById('iconPause').classList.add('hidden');
-            }
-        });
-
-        // Lottie Animation
-        lottie.loadAnimation({
-            container: document.getElementById('lottie-bird'),
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'https://foreverr.id/theme/art/ar-012/bird.json'
-        });
-
-        const scrollContainer = window.innerWidth >= 768
-            ? document.getElementById('desktopRight')
-            : window;
-
-        scrollContainer.addEventListener('scroll', () => {
-            const scrollTop = window.innerWidth >= 768
-                ? document.getElementById('desktopRight').scrollTop
-                : window.scrollY;
-
-            // Progress Line
-            const storySection = document.getElementById('story');
-            const storyTop = storySection.offsetTop;
-            const storyHeight = storySection.offsetHeight;
-            const scrollPos = scrollTop + window.innerHeight / 2;
-            if (scrollPos > storyTop && scrollPos < storyTop + storyHeight) {
-                const progress = ((scrollPos - storyTop) / storyHeight) * 100;
-                document.getElementById('progressLine').style.height = `${Math.min(progress, 100)}%`;
-            }
-
-            // Scroll Spy
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('#bottomNav a');
-            let current = '';
-            sections.forEach(section => {
-                if (scrollTop >= section.offsetTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('text-forest-900', 'font-bold');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('text-forest-900', 'font-bold');
-                }
-            });
-        });
-
-    </script>
+    <script src="index.js"></script>
 </body>
 
 </html>
