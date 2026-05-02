@@ -130,9 +130,15 @@ if (btnShowGift && btnCloseGift && giftModal) {
 }
 
 // Copy to Clipboard
-window.copyToClipboard = function(text) {
+window.copyToClipboard = function (text) {
     navigator.clipboard.writeText(text);
-    alert('Nomor rekening berhasil disalin!');
+    Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: 'Nomor rekening berhasil disalin.',
+        timer: 2000,
+        showConfirmButton: false
+    });
 }
 
 // Audio Control Logic
@@ -148,6 +154,188 @@ if (btnAudio && bgMusic) {
             document.getElementById('iconPause').classList.add('hidden');
         }
     });
+}
+
+// RSVP and Comments Logic
+const rsvpForm = document.getElementById('rsvpForm');
+const btnHadir = document.getElementById('btnHadir');
+const btnTidakHadir = document.getElementById('btnTidakHadir');
+const attendanceInput = document.getElementById('attendanceInput');
+const wishesList = document.getElementById('wishesList');
+const commentsSentinel = document.getElementById('commentsSentinel');
+const commentsLoading = document.getElementById('commentsLoading');
+
+let nextCommentsPage = 2;
+let isLoadingComments = false;
+let hasMoreComments = true;
+
+const createCommentEl = (comment) => {
+    const commentEl = document.createElement('div');
+    commentEl.className = 'comment-item w-full p-3 rounded-lg bg-[#abb5a5]/10 text-left border border-white/5';
+    
+    const attendanceHtml = comment.rsvp?.attendance 
+        ? `<span class="px-1.5 py-0.5 rounded text-[8px] font-bold uppercase ${comment.rsvp.attendance === 'hadir' ? 'bg-green-900/50 text-green-200' : 'bg-red-900/50 text-red-200'}">${comment.rsvp.attendance}</span>`
+        : '';
+
+    commentEl.innerHTML = `
+        <div class="flex items-start gap-3">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-forest-700 flex items-center justify-center text-[10px] font-bold text-white uppercase">
+                ${comment.name.substring(0, 1)}
+            </div>
+            <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between gap-2 mb-1">
+                    <p class="text-[11px] font-bold text-white truncate">${comment.name}</p>
+                    ${attendanceHtml}
+                </div>
+                <p class="text-[10px] text-white/80 leading-relaxed break-words">${comment.comment}</p>
+                <p class="comment-date text-[8px] text-white/40 mt-1.5">baru saja</p>
+            </div>
+        </div>
+    `;
+    return commentEl;
+};
+
+if (btnHadir && btnTidakHadir && attendanceInput) {
+    btnHadir.addEventListener('click', () => {
+        attendanceInput.value = 'hadir';
+        btnHadir.classList.replace('bg-[#1a2b1a]', 'bg-green-900');
+        btnTidakHadir.classList.replace('bg-red-900', 'bg-[#1a2b1a]');
+    });
+
+    btnTidakHadir.addEventListener('click', () => {
+        attendanceInput.value = 'tidak hadir';
+        btnTidakHadir.classList.replace('bg-[#1a2b1a]', 'bg-red-900');
+        btnHadir.classList.replace('bg-green-900', 'bg-[#1a2b1a]');
+    });
+}
+
+if (rsvpForm) {
+    rsvpForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(rsvpForm);
+        const data = Object.fromEntries(formData.entries());
+
+        if (!data.unique_id) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Akses Tidak Valid',
+                text: 'Silakan gunakan link undangan pribadi Anda.'
+            });
+            return;
+        }
+
+        try {
+            // First submit RSVP
+            const rsvpRes = await fetch('/rsvp', {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': data._token,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    unique_id: data.unique_id,
+                    attendance: data.attendance
+                })
+            });
+
+            if (!rsvpRes.ok) {
+                const err = await rsvpRes.json();
+                throw new Error(err.message || 'Gagal menyimpan konfirmasi.');
+            }
+
+            // Then submit comment if exists
+            if (data.comment.trim()) {
+                const commentRes = await fetch('/comments', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': data._token,
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        unique_id: data.unique_id,
+                        comment: data.comment
+                    })
+                });
+
+                if (commentRes.ok) {
+                    const result = await commentRes.json();
+                    const newComment = result.comment;
+
+                    // Add current attendance state for UI
+                    newComment.rsvp = { attendance: data.attendance };
+
+                    const commentEl = createCommentEl(newComment);
+                    wishesList.insertBefore(commentEl, wishesList.firstChild);
+                    wishesList.scrollTop = 0;
+                    rsvpForm.querySelector('textarea').value = '';
+                } else {
+                    const err = await commentRes.json();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: err.message || 'Gagal mengirim komentar.'
+                    });
+                }
+            }
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Terima Kasih!',
+                text: 'Konfirmasi dan ucapan Anda telah kami terima.',
+                timer: 3000,
+                showConfirmButton: false
+            });
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: error.message
+            });
+        }
+    });
+}
+
+// Infinite Scroll for Comments
+if (wishesList && commentsSentinel) {
+    const commentsObserver = new IntersectionObserver(async (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && hasMoreComments && !isLoadingComments) {
+            isLoadingComments = true;
+            commentsLoading.classList.remove('hidden');
+
+            try {
+                const response = await fetch(`/api/comments?page=${nextCommentsPage}`);
+                const data = await response.json();
+
+                if (data.data.length > 0) {
+                    data.data.forEach(comment => {
+                        const commentEl = createCommentEl(comment);
+                        // Fix time display for historical comments
+                        commentEl.querySelector('.comment-date').innerText = new Date(comment.created_at).toLocaleDateString();
+                        wishesList.insertBefore(commentEl, commentsSentinel);
+                    });
+                    nextCommentsPage++;
+                }
+
+                if (!data.next_page_url) {
+                    hasMoreComments = false;
+                    commentsSentinel.classList.add('hidden');
+                }
+            } catch (error) {
+                console.error('Error fetching comments:', error);
+            } finally {
+                isLoadingComments = false;
+                commentsLoading.classList.add('hidden');
+            }
+        }
+    }, {
+        root: wishesList,
+        threshold: 0.1
+    });
+
+    commentsObserver.observe(commentsSentinel);
 }
 
 const scrollContainer = window.innerWidth >= 768

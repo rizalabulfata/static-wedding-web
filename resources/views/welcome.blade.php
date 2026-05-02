@@ -8,6 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap"
         rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -39,7 +40,8 @@
                 class="absolute bottom-40 right-10 z-40 w-20 animate-fade-up opacity-60" alt="">
 
             <!-- Floating Assets -->
-            <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow" alt="Animated Cloud">
+            <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow"
+                alt="Animated Cloud">
             <img src="{{ asset('assets/header-main-bg.webp') }}" class="absolute top-0 left-0" alt="">
 
             <!-- Decorative Birds -->
@@ -64,7 +66,7 @@
             <div class="flex-none h-[10%]"></div>
             <div class="text-center relative z-10 text-white mt-4 mb-56">
                 <p class="text-sm font-bold tracking-wide">Kepada Yth.</p>
-                <p id="guestName" class="text-sm tracking-wide mt-1">Nama</p>
+                <p id="guestName" class="text-sm tracking-wide mt-1">{{ $rsvp?->name ?? 'Tamu Undangan' }}</p>
 
                 <button id="btnOpen"
                     class="mt-5 inline-flex items-center px-8 py-3 bg-white text-green-900 rounded-full shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105 font-semibold text-sm">
@@ -88,7 +90,8 @@
                         class="w-56 mx-auto animate-fade-up [animation-delay:0.4s] opacity-0" alt="Footer Bird" />
                 </div>
                 <!-- Flowers -->
-                <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-90 -mt-20
+                <img src="{{ asset('assets/main-footer.webp') }}"
+                    class="w-full h-auto object-cover opacity-90 -mt-20
                animate-fade-up opacity-0" />
 
             </div>
@@ -101,12 +104,13 @@
             <section id="home"
                 class="min-h-screen flex flex-col items-center justify-center pt-20 pb-40 bg-forest-pattern relative overflow-hidden">
                 <!-- Floating Decorations -->
-                <img src="{{ asset('assets/butterfly-one.webp') }}" class="absolute top-30 left-10 w-16 animate-pulse opacity-90"
-                    alt="">
-                <img src="{{ asset('assets/butterfly-second.webp') }}" class="absolute bottom-83 md:bottom-99 right-5 w-20 opacity-90"
-                    alt="">
+                <img src="{{ asset('assets/butterfly-one.webp') }}"
+                    class="absolute top-30 left-10 w-16 animate-pulse opacity-90" alt="">
+                <img src="{{ asset('assets/butterfly-second.webp') }}"
+                    class="absolute bottom-83 md:bottom-99 right-5 w-20 opacity-90" alt="">
 
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow" alt="Animated Cloud">
+                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow"
+                    alt="Animated Cloud">
                 <img src="{{ asset('assets/header-main-bg.webp') }}" class="absolute top-0 left-0" alt="">
 
                 <div class="container mx-auto px-6 text-center z-10">
@@ -115,7 +119,8 @@
 
                     <div class="animate-fade-up mb-8 translate-y-10">
                         <div class="relative inline-block">
-                            <img src="{{ asset('assets/foto/main-content-cover.webp') }}" class=" mx-auto object-cover" alt="Couple">
+                            <img src="{{ asset('assets/foto/main-content-cover.webp') }}" class=" mx-auto object-cover"
+                                alt="Couple">
                         </div>
                     </div>
                 </div>
@@ -127,7 +132,8 @@
                     <img src="{{ asset('assets/footer-bird.webp') }}" class="w-56 mx-auto relative translate-y-60" />
 
                     <!-- Flowers -->
-                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-90 -mt-20
+                    <img src="{{ asset('assets/main-footer.webp') }}"
+                        class="w-full h-auto object-cover opacity-90 -mt-20
                animate-fade-up [animation-delay:0.4s] opacity-0" />
 
                 </div>
@@ -137,7 +143,8 @@
             <section id="couple"
                 class="py-32 bg-forest-pattern relative overflow-hidden min-h-screen flex items-center justify-center">
                 <!-- Decorative Leaves -->
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow" alt="Animated Cloud">
+                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow"
+                    alt="Animated Cloud">
                 <img src="{{ asset('assets/header-main-bg.webp') }}" class="absolute top-0 left-0" alt="">
 
                 <!-- Arch Container -->
@@ -174,8 +181,8 @@
                             <div class="relative w-64 h-64 mx-auto mb-4">
                                 <div
                                     class="w-full h-full rounded-full overflow-hidden border-4 border-white/60 shadow-lg">
-                                    <img src="{{ asset('assets/foto/couple-woman.webp') }}" class="w-full h-full object-cover"
-                                        alt="Bride">
+                                    <img src="{{ asset('assets/foto/couple-woman.webp') }}"
+                                        class="w-full h-full object-cover" alt="Bride">
                                 </div>
                             </div>
                             <h3 class="font-violetbee text-4xl text-white mb-1">Mila</h3>
@@ -208,8 +215,8 @@
                             <div class="relative w-64 h-64 mx-auto mb-4">
                                 <div
                                     class="w-full h-full rounded-full overflow-hidden border-4 border-white/60 shadow-lg">
-                                    <img src="{{ asset('assets/foto/couple-man.webp') }}" class="w-full h-full object-cover"
-                                        alt="Groom">
+                                    <img src="{{ asset('assets/foto/couple-man.webp') }}"
+                                        class="w-full h-full object-cover" alt="Groom">
                                 </div>
                             </div>
                             <h3 class="font-violetbee text-4xl text-white mb-1">Rizal</h3>
@@ -230,7 +237,8 @@
                 </div>
 
                 <div class="section-footer">
-                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-80" alt="">
+                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-80"
+                        alt="">
                 </div>
             </section>
 
@@ -239,8 +247,8 @@
                 class="min-h-screen flex flex-col items-center justify-center bg-forest-two relative overflow-hidden">
 
                 <!-- Floating Decorations -->
-                <img src="{{ asset('assets/butterfly-one.webp') }}" class="absolute top-20 left-4 w-12 animate-pulse opacity-70 z-10"
-                    alt="">
+                <img src="{{ asset('assets/butterfly-one.webp') }}"
+                    class="absolute top-20 left-4 w-12 animate-pulse opacity-70 z-10" alt="">
 
                 <!-- Arch Card -->
                 <div class="reveal-up relative z-20 w-full flex items-center justify-center px-5 py-10">
@@ -250,7 +258,8 @@
 
                         <!-- The arch border SVG -->
                         <img src="{{ asset('assets/foto/border-akad-resepsi-info.webp') }}"
-                            class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none" alt="">
+                            class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none"
+                            alt="">
 
                         <!-- Content layered on top of the SVG -->
                         <div class="relative z-10 flex flex-col items-center text-center px-10 pt-16 pb-16"
@@ -258,7 +267,8 @@
 
                             <!-- Flower decoration top -->
                             <div class="mb-3">
-                                <img src="{{ asset('assets/foto/flower-white.webp') }}" class="w-20 h-auto opacity-80 mx-auto" alt="">
+                                <img src="{{ asset('assets/foto/flower-white.webp') }}"
+                                    class="w-20 h-auto opacity-80 mx-auto" alt="">
                             </div>
 
                             <!-- Script title -->
@@ -275,8 +285,8 @@
                             <div class="w-24 h-px bg-white/50 my-4"></div>
 
                             <!-- Location icon -->
-                            <svg class="w-6 h-6 text-white mb-2" fill="none" stroke="currentColor" stroke-width="1.5"
-                                viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-white mb-2" fill="none" stroke="currentColor"
+                                stroke-width="1.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -316,7 +326,8 @@
 
                         <!-- The arch border SVG -->
                         <img src="{{ asset('assets/foto/border-akad-resepsi-info.webp') }}"
-                            class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none" alt="">
+                            class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none"
+                            alt="">
 
                         <!-- Content layered on top of the SVG -->
                         <div class="relative z-10 flex flex-col items-center text-center px-10 pt-16 pb-16"
@@ -324,7 +335,8 @@
 
                             <!-- Flower decoration top -->
                             <div class="mb-3">
-                                <img src="{{ asset('assets/foto/flower-white.webp') }}" class="w-20 h-auto opacity-80 mx-auto" alt="">
+                                <img src="{{ asset('assets/foto/flower-white.webp') }}"
+                                    class="w-20 h-auto opacity-80 mx-auto" alt="">
                             </div>
 
                             <!-- Script title -->
@@ -341,8 +353,8 @@
                             <div class="w-24 h-px bg-white/50 my-4"></div>
 
                             <!-- Location icon -->
-                            <svg class="w-6 h-6 text-white mb-2" fill="none" stroke="currentColor" stroke-width="1.5"
-                                viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-white mb-2" fill="none" stroke="currentColor"
+                                stroke-width="1.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -382,11 +394,12 @@
                 class="min-h-screen flex flex-col items-center justify-center bg-forest-two relative overflow-hidden py-10">
 
                 <!-- Floating Decorations -->
-                <img src="{{ asset('assets/butterfly-one.webp') }}" class="absolute top-16 left-4 w-12 animate-pulse opacity-70 z-10"
-                    alt="">
+                <img src="{{ asset('assets/butterfly-one.webp') }}"
+                    class="absolute top-16 left-4 w-12 animate-pulse opacity-70 z-10" alt="">
                 <img src="{{ asset('assets/butterfly-second.webp') }}"
                     class="absolute top-32 right-6 w-14 animate-bounce opacity-60 z-10" alt="">
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-4 right-10 w-28 opacity-30 z-10" alt="">
+                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-4 right-10 w-28 opacity-30 z-10"
+                    alt="">
 
                 <div class="relative z-20 w-full flex flex-col items-center justify-center px-5">
 
@@ -403,12 +416,14 @@
                             style="min-height: 500px;">
 
                             <!-- Title: Matches Image 2 Script style -->
-                            <h2 class="font-violetbee text-4xl text-white drop-shadow-md mb-6 italic">Save The Date</h2>
+                            <h2 class="font-violetbee text-4xl text-white drop-shadow-md mb-6 italic">Save The Date
+                            </h2>
 
                             <!-- Couple photo circle with Gold Border to match Image 2 -->
                             <div
                                 class="w-44 h-44 rounded-full overflow-hidden border-[6px] border-[#c2b280] shadow-2xl mb-8">
-                                <img src="{{ asset('assets/ARV_9022.JPG_2.webp') }}" class="w-full h-full object-cover" alt="Couple">
+                                <img src="{{ asset('assets/ARV_9022.JPG_2.webp') }}"
+                                    class="w-full h-full object-cover" alt="Couple">
                             </div>
 
                             <!-- Countdown boxes: Updated to Gold Background + White Text -->
@@ -466,13 +481,15 @@
             <!-- Story Section -->
             <section id="story" class="py-28 bg-forest-second relative overflow-hidden">
                 <!-- Floating Decorative Assets -->
-                <img src="{{ asset('assets/butterfly-one.webp') }}" class="absolute top-20 left-10 w-16 animate-pulse opacity-60"
+                <img src="{{ asset('assets/butterfly-one.webp') }}"
+                    class="absolute top-20 left-10 w-16 animate-pulse opacity-60" alt="">
+                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-10 right-20 w-32 opacity-30"
                     alt="">
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-10 right-20 w-32 opacity-30" alt="">
 
                 <div class="container mx-auto px-8 relative z-10">
                     <!-- Section Header -->
-                    <h2 class="font-violetbee text-5xl text-center text-white mb-20 reveal-up drop-shadow-lg">Love Story
+                    <h2 class="font-violetbee text-5xl text-center text-white mb-20 reveal-up drop-shadow-lg">Love
+                        Story
                     </h2>
 
                     <div class="relative max-w-md mx-auto">
@@ -587,7 +604,8 @@
                     <img src="{{ asset('assets/footer-bird.webp') }}" class="w-56 mx-auto relative translate-y-60" />
 
                     <!-- Flowers -->
-                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-90 -mt-20
+                    <img src="{{ asset('assets/main-footer.webp') }}"
+                        class="w-full h-auto object-cover opacity-90 -mt-20
                animate-fade-up [animation-delay:0.4s] opacity-0" />
 
                 </div>
@@ -605,32 +623,43 @@
 
                     <!-- Row 1: Top Wide Image -->
                     <div class="reveal-zoom">
-                        <img src="{{ asset('assets/foto/collage-1-top.webp') }}" class="w-full h-auto block" alt="Couple Traditional">
+                        <img src="{{ asset('assets/foto/collage-1-top.webp') }}" class="w-full h-auto block"
+                            alt="Couple Traditional">
                     </div>
 
                     <!-- Row 2: Cluster (Left) + Large Portrait (Right) -->
                     <div class="grid grid-cols-2 gap-2 items-stretch">
                         <div class="grid grid-cols-2 gap-2">
-                            <img src="{{ asset('assets/foto/collage-1.webp') }}" class="w-full h-full object-cover reveal-zoom block">
-                            <img src="{{ asset('assets/foto/collage-2.webp') }}" class="w-full h-full object-cover reveal-zoom block">
-                            <img src="{{ asset('assets/foto/collage-3.webp') }}" class="w-full h-full object-cover reveal-zoom block">
-                            <img src="{{ asset('assets/foto/collage-4.webp') }}" class="w-full h-full object-cover reveal-zoom block">
+                            <img src="{{ asset('assets/foto/collage-1.webp') }}"
+                                class="w-full h-full object-cover reveal-zoom block">
+                            <img src="{{ asset('assets/foto/collage-2.webp') }}"
+                                class="w-full h-full object-cover reveal-zoom block">
+                            <img src="{{ asset('assets/foto/collage-3.webp') }}"
+                                class="w-full h-full object-cover reveal-zoom block">
+                            <img src="{{ asset('assets/foto/collage-4.webp') }}"
+                                class="w-full h-full object-cover reveal-zoom block">
                         </div>
                         <div class="reveal-zoom">
-                            <img src="{{ asset('assets/foto/collage-5.webp') }}" class="w-full h-full object-cover block">
+                            <img src="{{ asset('assets/foto/collage-5.webp') }}"
+                                class="w-full h-full object-cover block">
                         </div>
                     </div>
 
                     <!-- Row 3: Large Portrait (Left) + Cluster (Right) -->
                     <div class="grid grid-cols-2 gap-2 items-stretch">
                         <div class="reveal-zoom">
-                            <img src="{{ asset('assets/foto/collage-6.webp') }}" class="w-full h-full object-cover block">
+                            <img src="{{ asset('assets/foto/collage-6.webp') }}"
+                                class="w-full h-full object-cover block">
                         </div>
                         <div class="grid grid-cols-2 gap-2">
-                            <img src="{{ asset('assets/foto/collage-7.webp') }}" class="w-full h-full object-cover reveal-zoom block">
-                            <img src="{{ asset('assets/foto/collage-8.webp') }}" class="w-full h-full object-cover reveal-zoom block">
-                            <img src="{{ asset('assets/foto/collage-9.webp') }}" class="w-full h-full object-cover reveal-zoom block">
-                            <img src="{{ asset('assets/foto/collage-10.webp') }}" class="w-full h-full object-cover reveal-zoom block">
+                            <img src="{{ asset('assets/foto/collage-7.webp') }}"
+                                class="w-full h-full object-cover reveal-zoom block">
+                            <img src="{{ asset('assets/foto/collage-8.webp') }}"
+                                class="w-full h-full object-cover reveal-zoom block">
+                            <img src="{{ asset('assets/foto/collage-9.webp') }}"
+                                class="w-full h-full object-cover reveal-zoom block">
+                            <img src="{{ asset('assets/foto/collage-10.webp') }}"
+                                class="w-full h-full object-cover reveal-zoom block">
                         </div>
                     </div>
                 </div>
@@ -665,7 +694,8 @@
                 </div>
 
                 <div class="section-footer">
-                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-80" alt="">
+                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-80"
+                        alt="">
                 </div>
             </section>
 
@@ -675,7 +705,8 @@
 
                 <!-- Stone Arch Frame (Asset from image_17.png) -->
                 <div class="absolute inset-0 z-0 flex justify-center items-center pointer-events-none">
-                    <img src="{{ asset('assets/wishes-stone-arch.webp') }}" class="h-auto w-auto object-contain " alt="">
+                    <img src="{{ asset('assets/wishes-stone-arch.webp') }}" class="h-auto w-auto object-contain "
+                        alt="">
                 </div>
 
                 <!-- Cream Insert (Asset from image_18.png) -->
@@ -694,41 +725,81 @@
                         Konfirmasi Kehadiran</p>
 
                     <!-- RSVP Form (Slimmer inputs) -->
-                    <form id="rsvpForm" class="space-y-2 mb-4 reveal-up">
-                        <!-- Name Input -->
-                        <input type="text" placeholder="Nama"
-                            class="w-full h-9 rounded-lg bg-[#1a2b1a] text-white/90 placeholder:text-white/60 px-4 text-[11px] font-light focus:outline-none focus:ring-1 focus:ring-white/20 transition-all">
+                    @if ($rsvp)
+                        <form id="rsvpForm" class="space-y-2 mb-4 reveal-up">
+                            @csrf
+                            <input type="hidden" name="unique_id" value="{{ $rsvp->unique_id }}">
+                            <!-- Name Input -->
+                            <input type="text" value="{{ $rsvp->name }}" readonly
+                                class="w-full h-9 rounded-lg bg-[#1a2b1a] text-white/90 placeholder:text-white/60 px-4 text-[11px] font-light focus:outline-none focus:ring-1 focus:ring-white/20 transition-all">
 
-                        <!-- Message Textarea -->
-                        <textarea placeholder="Ucapan...." rows="4"
-                            class="w-full rounded-lg bg-[#1a2b1a] text-white/90 placeholder:text-white/60 p-4 text-[11px] font-light focus:outline-none focus:ring-1 focus:ring-white/20 transition-all"></textarea>
+                            <!-- Message Textarea -->
+                            <textarea name="comment" placeholder="Ucapan...." rows="4"
+                                class="w-full rounded-lg bg-[#1a2b1a] text-white/90 placeholder:text-white/60 p-4 text-[11px] font-light focus:outline-none focus:ring-1 focus:ring-white/20 transition-all"></textarea>
 
-                        <!-- Attendance Buttons (Side-by-side) -->
-                        <div class="grid grid-cols-2 gap-2">
-                            <button type="button"
-                                class="w-full h-8 flex items-center justify-center gap-1.5 rounded-md bg-[#1a2b1a] text-white transition-colors">
-                                <span class="text-[10px]">❌</span>
-                                <span class="text-[9px] font-bold uppercase tracking-tighter">Tidak Hadir</span>
+                            <!-- Attendance Buttons (Side-by-side) -->
+                            <div class="grid grid-cols-2 gap-2">
+                                <button type="button" id="btnTidakHadir"
+                                    class="w-full h-8 flex items-center justify-center gap-1.5 rounded-md transition-colors {{ $rsvp->attendance === 'tidak hadir' ? 'bg-red-900' : 'bg-[#1a2b1a]' }} text-white">
+                                    <span class="text-[10px]">❌</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-tighter">Tidak Hadir</span>
+                                </button>
+                                <button type="button" id="btnHadir"
+                                    class="w-full h-8 flex items-center justify-center gap-1.5 rounded-md transition-colors {{ $rsvp->attendance === 'hadir' ? 'bg-green-900' : 'bg-[#1a2b1a]' }} text-white">
+                                    <span class="text-[10px]">✅</span>
+                                    <span class="text-[9px] font-bold uppercase tracking-tighter">Hadir</span>
+                                </button>
+                            </div>
+                            <input type="hidden" name="attendance" id="attendanceInput"
+                                value="{{ $rsvp->attendance }}">
+
+                            <!-- Submit Button (Full width below) -->
+                            <button type="submit"
+                                class="w-full h-8 rounded-md bg-[#1a2b1a] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-forest-900 transition-all">
+                                Kirim
                             </button>
-                            <button type="button"
-                                class="w-full h-8 flex items-center justify-center gap-1.5 rounded-md bg-[#1a2b1a] text-white transition-colors">
-                                <span class="text-[10px]">✅</span>
-                                <span class="text-[9px] font-bold uppercase tracking-tighter">Hadir</span>
-                            </button>
+                        </form>
+                    @else
+                        <div class="mb-6 p-4 rounded-lg bg-[#1a2b1a]/50 text-white/70 text-[10px] italic reveal-up">
+                            Silakan gunakan link undangan pribadi Anda untuk memberikan ucapan dan konfirmasi kehadiran.
                         </div>
-
-                        <!-- Submit Button (Full width below) -->
-                        <button type="submit"
-                            class="w-full h-8 rounded-md bg-[#1a2b1a] text-white text-[10px] font-bold uppercase tracking-widest hover:bg-forest-900 transition-all">
-                            Kirim
-                        </button>
-                    </form>
+                    @endif
 
                     <!-- Wishes List Container (Matches the darker background in image) -->
-                    <div class="bg-[#1a2b1a] rounded-xl p-4 space-y-2.5 reveal-up shadow-xl">
-                        <div class="w-full h-11 rounded-lg bg-[#abb5a5]/40"></div>
-                        <div class="w-full h-11 rounded-lg bg-[#abb5a5]/40"></div>
-                        <div class="w-full h-11 rounded-lg bg-[#abb5a5]/40"></div>
+                    <div id="wishesList"
+                        class="bg-[#1a2b1a] rounded-xl p-4 space-y-3 reveal-up shadow-xl max-h-[400px] overflow-y-auto scroll-smooth custom-scrollbar">
+                        @foreach ($comments as $comment)
+                            <div
+                                class="comment-item w-full p-3 rounded-lg bg-[#abb5a5]/10 text-left border border-white/5">
+                                <div class="flex items-start gap-3">
+                                    <div
+                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-forest-700 flex items-center justify-center text-[10px] font-bold text-white uppercase">
+                                        {{ substr($comment->name, 0, 1) }}
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="flex items-center justify-between gap-2 mb-1">
+                                            <p class="text-[11px] font-bold text-white truncate">{{ $comment->name }}
+                                            </p>
+                                            @if ($comment->rsvp?->attendance)
+                                                <span
+                                                    class="px-1.5 py-0.5 rounded text-[8px] font-bold uppercase {{ $comment->rsvp->attendance === 'hadir' ? 'bg-green-900/50 text-green-200' : 'bg-red-900/50 text-red-200' }}">
+                                                    {{ $comment->rsvp->attendance }}
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <p class="text-[10px] text-white/80 leading-relaxed break-words">{{ $comment->comment }}</p>
+                                        <p class="comment-date text-[8px] text-white/40 mt-1.5">{{ $comment->created_at->diffForHumans() }}</p>
+                                        </div>
+                                        </div>
+                                        </div>
+                        @endforeach
+
+                        <div id="commentsSentinel" class="h-4 w-full"></div>
+                        <div id="commentsLoading" class="hidden py-2 text-center">
+                            <div
+                                class="inline-block w-4 h-4 border-2 border-white/20 border-t-white/80 rounded-full animate-spin">
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -740,7 +811,8 @@
                     <img src="{{ asset('assets/footer-bird.webp') }}" class="w-56 mx-auto relative translate-y-60" />
 
                     <!-- Flowers -->
-                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-90 -mt-20
+                    <img src="{{ asset('assets/main-footer.webp') }}"
+                        class="w-full h-auto object-cover opacity-90 -mt-20
                animate-fade-up [animation-delay:0.4s] opacity-0" />
 
                 </div>
@@ -751,9 +823,10 @@
                 class="min-h-screen flex flex-col items-center justify-start pt-16 bg-forest-three relative overflow-hidden">
 
                 <!-- Floating Decorations -->
-                <img src="{{ asset('assets/butterfly-one.webp') }}" class="absolute top-20 left-4 w-12 animate-pulse opacity-70 z-10"
+                <img src="{{ asset('assets/butterfly-one.webp') }}"
+                    class="absolute top-20 left-4 w-12 animate-pulse opacity-70 z-10" alt="">
+                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-6 right-6 w-28 opacity-40 z-10"
                     alt="">
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-6 right-6 w-28 opacity-40 z-10" alt="">
 
                 <!-- Main Content Container (Removed justify-center to move content up) -->
                 <div class="relative z-20 w-full flex flex-col items-center px-6 ">
@@ -761,8 +834,8 @@
                     <!-- Arched Photo Container -->
                     <div class="relative w-full max-w-[280px] mb-8 reveal-zoom">
                         <!-- The arch border / photo asset -->
-                        <img src="{{ asset('assets/foto/closing-photo.webp') }}" class="w-full h-auto object-contain relative z-10"
-                            alt="Closing Photo">
+                        <img src="{{ asset('assets/foto/closing-photo.webp') }}"
+                            class="w-full h-auto object-contain relative z-10" alt="Closing Photo">
                     </div>
 
                     <!-- Closing Message Section -->
@@ -792,7 +865,8 @@
                     <img src="{{ asset('assets/footer-bird.webp') }}" class="w-56 mx-auto relative translate-y-60" />
 
                     <!-- Flowers -->
-                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-90 -mt-20
+                    <img src="{{ asset('assets/main-footer.webp') }}"
+                        class="w-full h-auto object-cover opacity-90 -mt-20
    animate-fade-up [animation-delay:0.4s] opacity-0" />
                 </div>
             </footer>
