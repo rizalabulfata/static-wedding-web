@@ -1,2 +1,10 @@
 /design
 /node_modules
+/bootstrap
+/database
+/public
+/storage
+/web
+/vendor
+.env
+.env.example
