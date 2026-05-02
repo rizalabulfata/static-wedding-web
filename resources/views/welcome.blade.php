@@ -20,7 +20,7 @@
         <!-- Optional overlay branding -->
         <div class="absolute bottom-16 left-12 text-white">
             <p class="text-sm tracking-[0.3em] uppercase font-light mb-2">The Wedding of</p>
-            <h1 class="font-serif text-6xl">Rizal & Mila</h1>
+            <h1 class="font-serif text-6xl">Mila & Rizal</h1>
             <p class="mt-3 text-sm tracking-widest text-white/70">2 . 6 . 26</p>
         </div>
         <!-- Dark gradient at bottom -->
@@ -58,8 +58,8 @@
 
             <!-- Names -->
             <div class="relative z-10 text-white text-center leading-none text-7xl font-violetbee">
-                <h1 class="">Rizal &</h1>
-                <h1 class="">Mila</h1>
+                <h1 class="">Mila &</h1>
+                <h1 class="">Rizal</h1>
             </div>
 
             <!-- Guest + Button -->
@@ -115,7 +115,7 @@
 
                 <div class="container mx-auto px-6 text-center z-10">
                     <h2 class="font-serif text-2xl md:text-3xl text-white mb-2 reveal-up">The Wedding of</h2>
-                    <h1 class="font-violetbee text-6xl text-white mb-6 reveal-up">Rizal & Mila</h1>
+                    <h1 class="font-violetbee text-6xl text-white mb-6 reveal-up">Mila & Rizal</h1>
 
                     <div class="animate-fade-up mb-8 translate-y-10">
                         <div class="relative inline-block">
@@ -872,7 +872,7 @@
                         </p>
 
                         <!-- Script names matching the reference -->
-                        <h2 class="font-violetbee text-5xl mt-2 drop-shadow-lg">Rizal & Mila</h2>
+                        <h2 class="font-violetbee text-5xl mt-2 drop-shadow-lg">Mila & Rizal</h2>
                     </div>
 
                 </div>
