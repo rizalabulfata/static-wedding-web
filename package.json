@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "tailwindcss -i index.css -o output.css --watch",
+    "build": "tailwindcss -i index.css -o output.css --minify"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.4",
+    "@tailwindcss/postcss": "^4.2.4",
+    "postcss": "^8.5.13",
+    "tailwindcss": "^4.2.4"
+  }
+}

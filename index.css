@@ -1,137 +1,215 @@
- /* Fonts Section */
- @font-face {
-     font-family: 'VioletBee';
-     src: url('assets/fonts/Violet_Bee.otf') format('opentype');
-     font-weight: normal;
-     font-style: normal;
- }
+@import "tailwindcss";
 
- /* end Fonts Section */
+@theme {
+    --font-serif: "Cormorant Garamond", serif;
+    --font-sans: "Montserrat", sans-serif;
+    --font-violetbee: "VioletBee";
 
- .locked {
-     overflow: hidden;
-     height: 100vh;
- }
+    --color-forest-50: #f2f7f2;
+    --color-forest-100: #e1ede1;
+    --color-forest-200: #c5dbc5;
+    --color-forest-300: #9aba9a;
+    --color-forest-400: #6d946d;
+    --color-forest-500: #4d754d;
+    --color-forest-600: #3c5c3c;
+    --color-forest-700: #324a32;
+    --color-forest-800: #2a3c2a;
+    --color-forest-900: #243324;
 
- .reveal-up {
-     opacity: 0;
-     transform: translateY(20px);
-     transition: all 0.7s ease-out;
- }
+    --animate-fade-up: fadeUp 1.2s ease-out forwards;
+    --animate-cloud-slow: cloudMove 12s linear infinite;
+    --animate-slide-right: fadeRight 1.2s ease-out forwards;
+    --animate-slide-left: fadeLeft 1.2s ease-out forwards;
 
- .reveal-zoom {
-     opacity: 0;
-     transform: scale(0.9);
-     transition: all 0.7s ease-out;
- }
+    @keyframes fadeUp {
+        0% {
+            opacity: 0;
+            transform: translateY(60px);
+        }
 
- .is-active {
-     opacity: 1;
-     transform: translateY(0) scale(1);
- }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
- .bg-forest-pattern {
-     background-image: url('assets/main-bg.webp');
-     background-size: cover;
-     background-position: center;
- }
+    @keyframes fadeRight {
+        0% {
+            opacity: 0;
+            transform: translateX(100%);
+        }
 
- .bg-forest-second {
-     background-image: url('assets/bg-akad-resepsi-info.webp');
-     background-size: cover;
-     background-position: center;
- }
+        80% {
+            transform: translateX(-10%);
+        }
 
- .bg-forest-two {
-     background-image: url('assets/bg-2.webp');
-     background-size: cover;
-     background-position: center;
- }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
 
- .bg-forest-three {
-     background-image: url('assets/bg-3.webp');
-     background-size: cover;
-     background-position: center;
- }
+    @keyframes fadeLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(0%);
+        }
 
- @keyframes spin-slow {
-     from {
-         transform: rotate(0deg);
-     }
+        80% {
+            transform: translateX(-10%);
+        }
 
-     to {
-         transform: rotate(360deg);
-     }
- }
+        100% {
+            opacity: 1;
+            transform: translateX(100);
+        }
+    }
 
- .animate-spin-slow {
-     animation: spin-slow 8s linear infinite;
- }
+    @keyframes cloudMove {
+        0% {
+            transform: translateX(-120%);
+        }
 
- /* Custom section footer */
- .section-footer {
-     position: absolute;
-     bottom: 0;
-     left: 0;
-     right: 0;
-     pointer-events: none;
-     z-index: 5;
- }
+        100% {
+            transform: translateX(200%);
+        }
+    }
+}
 
- @media (min-width: 768px) {
-     body {
-         display: flex;
-         height: 100vh;
-         overflow: hidden;
-     }
+/* Fonts Section */
+@font-face {
+    font-family: 'VioletBee';
+    src: url('assets/fonts/Violet_Bee.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-     #desktopRight {
-         width: 390px;
-         min-width: 390px;
-         height: 100vh;
-         position: relative;
-         overflow: hidden;
-         /* locked by default */
-         box-shadow: -8px 0 40px rgba(0, 0, 0, 0.3);
-     }
+/* end Fonts Section */
 
-     /* unlocked state — added by JS after button click */
-     #desktopRight.unlocked {
-         overflow-y: auto;
-         overflow-x: hidden;
-     }
+.locked {
+    overflow: hidden;
+    height: 100vh;
+}
 
-     #desktopRight #cover {
-         position: absolute;
-         width: 390px;
-         height: 100%;
-         top: 0;
-         left: 0;
-     }
+.reveal-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.7s ease-out;
+}
 
-     #desktopRight #giftModal {
-         position: absolute;
-         width: 390px;
-         height: 100%;
-         top: 0;
-         left: 0;
-     }
+.reveal-zoom {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.7s ease-out;
+}
 
-     #desktopRight #bottomNav {
-         position: fixed;
-         left: auto;
-         right: 0;
-         width: 390px;
-         transform: translateY(200%) !important;
-     }
+.is-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
 
-     #desktopRight #bottomNav.nav-visible {
-         transform: none !important;
-     }
+.bg-forest-pattern {
+    background-image: url('assets/main-bg.webp');
+    background-size: cover;
+    background-position: center;
+}
 
-     #desktopRight #btnAudio {
-         position: fixed;
-         right: 6px;
-         bottom: 96px;
-     }
- }
+.bg-forest-second {
+    background-image: url('assets/bg-akad-resepsi-info.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-forest-two {
+    background-image: url('assets/bg-2.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-forest-three {
+    background-image: url('assets/bg-3.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+}
+
+/* Custom section footer */
+.section-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@media (min-width: 768px) {
+    body {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    #desktopRight {
+        width: 450px;
+        min-width: 450px;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        /* locked by default */
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* unlocked state — added by JS after button click */
+    #desktopRight.unlocked {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    #desktopRight #cover {
+        position: absolute;
+        width: 450px;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    #desktopRight #giftModal {
+        position: absolute;
+        width: 450px;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    #desktopRight #bottomNav {
+        position: fixed;
+        left: auto;
+        right: 0;
+        width: 350px;
+        transform: translateY(200%) !important;
+    }
+
+    #desktopRight #bottomNav.nav-visible {
+        transform: none !important;
+    }
+
+    #desktopRight #btnAudio {
+        position: fixed;
+        right: 70px;
+        bottom: 115px;
+    }
+}
