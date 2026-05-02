@@ -1,0 +1,160 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Montserrat', sans-serif;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-violetbee: 'VioletBee';
+
+    --color-forest-50: #f2f7f2;
+    --color-forest-100: #e1ede1;
+    --color-forest-200: #c5dbc5;
+    --color-forest-300: #9aba9a;
+    --color-forest-400: #6d946d;
+    --color-forest-600: #3c5c3c;
+    --color-forest-700: #324a32;
+    --color-forest-800: #2a3c2a;
+    --color-forest-900: #243324;
+
+    --animate-fade-up: fadeUp 1.2s ease-out forwards;
+    --animate-cloud-slow: cloudMove 12s linear infinite;
+    --animate-slide-right: fadeRight 1.2s ease-out forwards;
+    --animate-slide-left: fadeLeft 1.2s ease-out forwards;
+
+    @keyframes fadeUp {
+        0% { opacity: 0; transform: translateY(60px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeRight {
+        0% { opacity: 0; transform: translate(100%); }
+        80% { transform: translate(-10%); }
+        100% { opacity: 1; transform: translate(0); }
+    }
+    @keyframes fadeLeft {
+        0% { opacity: 0; transform: translate(0%); }
+        80% { transform: translate(-10%); }
+        100% { opacity: 1; transform: translate(100px); }
+    }
+    @keyframes cloudMove {
+        0% { transform: translate(-120%); }
+        100% { transform: translate(200%); }
+    }
+}
+
+@font-face {
+    font-family: 'VioletBee';
+    src: url('../../public/assets/fonts/Violet_Bee.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Custom Styles */
+.locked {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.reveal-up {
+    opacity: 0;
+    transition: all 0.7s ease-out;
+    transform: translateY(20px);
+}
+
+.reveal-zoom {
+    opacity: 0;
+    transition: all 0.7s ease-out;
+    transform: scale(0.9);
+}
+
+.is-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.bg-forest-pattern {
+    background-image: url('../../public/assets/main-bg.webp');
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-forest-second {
+    background-image: url('../../public/assets/bg-akad-resepsi-info.webp');
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-forest-two {
+    background-image: url('../../public/assets/bg-2.webp');
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-forest-three {
+    background-image: url('../../public/assets/bg-3.webp');
+    background-position: center;
+    background-size: cover;
+}
+
+@keyframes spin-slow {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+}
+
+.section-footer {
+    pointer-events: none;
+    z-index: 5;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@media (min-width: 768px) {
+    body {
+        height: 100vh;
+        display: flex;
+        overflow: hidden;
+    }
+    #desktopRight {
+        width: 450px;
+        min-width: 450px;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        box-shadow: -8px 0 40px rgba(0,0,0,0.3);
+    }
+    #desktopRight.unlocked {
+        overflow-y: auto;
+    }
+    #desktopRight #cover,
+    #desktopRight #giftModal {
+        width: 450px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #desktopRight #bottomNav {
+        width: 350px;
+        position: fixed;
+        left: auto;
+        right: 0;
+        transform: translateY(200%) !important;
+    }
+    #desktopRight #bottomNav.nav-visible {
+        transform: none !important;
+    }
+    #desktopRight #btnAudio {
+        position: fixed;
+        bottom: 115px;
+        right: 70px;
+    }
+}
