@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'waha' => [
+        'base_url' => env('WAHA_BASE_URL', 'http://localhost:3000'),
+        'session' => env('WAHA_SESSION', 'default'),
+    ],
+
 ];
