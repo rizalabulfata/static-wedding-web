@@ -103,11 +103,12 @@
             <!-- Home Section -->
             <section id="home"
                 class="min-h-screen flex flex-col items-center justify-center pt-20 pb-40 bg-forest-pattern relative overflow-hidden">
+
                 <!-- Floating Decorations -->
                 <img src="{{ asset('assets/butterfly-one.webp') }}"
-                    class="absolute top-30 left-10 w-16 animate-pulse opacity-90" alt="">
+                    class="absolute top-30 left-10 w-16 animate-pulse opacity-90 z-30" alt="">
                 <img src="{{ asset('assets/butterfly-second.webp') }}"
-                    class="absolute bottom-83 md:bottom-99 right-5 w-20 opacity-90" alt="">
+                    class="absolute bottom-83 md:bottom-99 right-5 w-20 opacity-90 z-30" alt="">
 
                 <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow"
                     alt="Animated Cloud">
@@ -117,9 +118,9 @@
                     <h2 class="font-serif text-2xl md:text-3xl text-white mb-2 reveal-up">The Wedding of</h2>
                     <h1 class="font-violetbee text-6xl text-white mb-6 reveal-up">Mila & Rizal</h1>
 
-                    <div class="animate-fade-up mb-8 translate-y-10">
+                    <div class="animate-fade-up mb-8 translate-y-10 z-10">
                         <div class="relative inline-block">
-                            <img src="{{ asset('assets/foto/main-content-cover.webp') }}" class=" mx-auto object-cover"
+                            <img src="{{ asset('assets/foto/main-content-cover.webp') }}" class="mx-auto object-cover"
                                 alt="Couple">
                         </div>
                     </div>
@@ -127,15 +128,9 @@
 
                 <!-- Footer Birds -->
                 <div class="section-footer w-full">
-
-                    <!-- Bird -->
                     <img src="{{ asset('assets/footer-bird.webp') }}" class="w-56 mx-auto relative translate-y-60" />
-
-                    <!-- Flowers -->
                     <img src="{{ asset('assets/main-footer.webp') }}"
-                        class="w-full h-auto object-cover opacity-90 -mt-20
-               animate-fade-up [animation-delay:0.4s] opacity-0" />
-
+                        class="w-full h-auto object-cover opacity-90 -mt-20 animate-fade-up [animation-delay:0.4s] opacity-0" />
                 </div>
             </section>
 
@@ -486,9 +481,9 @@
                 <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-10 right-20 w-32 opacity-30"
                     alt="">
 
-                <div class="container mx-auto px-8 relative z-10">
+                <div class="container mx-auto px-8 relative z-10 mb-30">
                     <!-- Section Header -->
-                    <h2 class="font-violetbee text-5xl text-center text-white mb-20 reveal-up drop-shadow-lg">Love
+                    <h2 class="font-violetbee text-5xl text-center text-white mb-10 reveal-up drop-shadow-lg">Love
                         Story
                     </h2>
 
@@ -502,7 +497,7 @@
                         </div>
 
                         <!-- Story Items Container -->
-                        <div class="space-y-16">
+                        <div class="space-y-5">
 
                             <!-- Item 1: The Beginning -->
                             <div class="relative pl-12 reveal-up">
@@ -715,116 +710,165 @@
                         alt="">
                 </div>
 
-                <!-- Cream Arch + Content: stack them together in one relative container -->
+                <!-- Cream Arch + Content -->
                 <div class="relative z-10 flex justify-center items-center w-full">
 
-                    <!-- Cream Arch SVG as background of this container -->
-                    <img src="{{ asset('assets/wishes-cream-arch.svg') }}"
-                        class="absolute inset-0 w-full h-full object-contain pointer-events-none"
-                        alt="Cream Arch Insert">
-                    <div
-                        class="relative z-20 w-full max-w-auto flex flex-col items-center text-center
-            pt-[18%] pb-[12%] px-[14%]">
+                    <div class="relative w-[85vw] max-w-[360px]" style="aspect-ratio: 3/5.0;">
 
-                        <!-- Title -->
-                        <h2
-                            class="font-sans font-black text-2xl text-[#1a2b1a] tracking-tight reveal-up uppercase mb-0">
-                            Wishes
-                        </h2>
-                        <p class="text-[#1a2b1a] text-[9px] font-bold mb-4 reveal-up tracking-tight">
-                            Ucapan Selamat & Konfirmasi Kehadiran
-                        </p>
+                        <img src="{{ asset('assets/wishes-cream-arch.svg') }}"
+                            class="absolute inset-0 w-full h-full object-fill pointer-events-none"
+                            alt="Cream Arch Insert">
 
-                        <!-- RSVP Form -->
-                        @if ($rsvp)
-                            <form id="rsvpForm" class="space-y-2 mb-3 reveal-up w-full">
-                                @csrf
-                                <input type="hidden" name="unique_id" value="{{ $rsvp->unique_id }}">
+                        <div
+                            class="absolute inset-0 flex flex-col items-center text-center
+            pt-[14%] px-[12%] overflow-y-auto">
 
-                                <input type="text" value="{{ $rsvp->name }}" readonly
-                                    class="w-full h-9 rounded-lg bg-[#1a2b1a] text-white/90 placeholder:text-white/60
-                               px-4 text-[11px] font-light focus:outline-none focus:ring-1
-                               focus:ring-white/20 transition-all">
+                            <h2 class="font-sans font-black text-2xl text-[#1a2b1a] tracking-tight uppercase mb-0">
+                                Wishes
+                            </h2>
+                            <p class="text-[#1a2b1a] text-[9px] font-bold mb-3 tracking-tight">
+                                Ucapan Selamat & Konfirmasi Kehadiran
+                            </p>
 
-                                <textarea name="comment" placeholder="Ucapan...." rows="3"
-                                    class="w-full rounded-lg bg-[#1a2b1a] text-white/90 placeholder:text-white/60
-                               p-3 text-[11px] font-light focus:outline-none focus:ring-1
-                               focus:ring-white/20 transition-all resize-none"></textarea>
+                            @if ($rsvp)
+                                <form id="rsvpForm" class="space-y-2 mb-3 w-full">
+                                    @csrf
+                                    <input type="hidden" name="unique_id" value="{{ $rsvp->unique_id }}">
 
-                                <div class="grid grid-cols-2 gap-2">
-                                    <button type="button" id="btnTidakHadir"
-                                        class="w-full h-8 flex items-center justify-center gap-1.5 rounded-md transition-colors
+                                    <input type="text" value="{{ $rsvp->name }}" readonly
+                                        class="w-full h-9 rounded-lg bg-[#1a2b1a] text-white/90
+                               px-4 text-[11px] font-light focus:outline-none">
+
+                                    <textarea name="comment" placeholder="Ucapan...." rows="3"
+                                        class="w-full rounded-lg bg-[#1a2b1a] text-white/90 placeholder:text-white/60
+                               p-3 text-[11px] font-light focus:outline-none resize-none"></textarea>
+
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <button type="button" id="btnTidakHadir"
+                                            class="w-full h-8 flex items-center justify-center gap-1 rounded-md transition-colors
                                    {{ $rsvp->attendance === 'tidak hadir' ? 'bg-red-900' : 'bg-[#1a2b1a]' }} text-white">
-                                        <span class="text-[10px]">❌</span>
-                                        <span class="text-[9px] font-bold uppercase tracking-tighter">Tidak
-                                            Hadir</span>
-                                    </button>
-                                    <button type="button" id="btnHadir"
-                                        class="w-full h-8 flex items-center justify-center gap-1.5 rounded-md transition-colors
+                                            <span class="text-[10px]">❌</span>
+                                            <span class="text-[9px] font-bold uppercase tracking-tighter">Tidak
+                                                Hadir</span>
+                                        </button>
+                                        <button type="button" id="btnHadir"
+                                            class="w-full h-8 flex items-center justify-center gap-1 rounded-md transition-colors
                                    {{ $rsvp->attendance === 'hadir' ? 'bg-green-900' : 'bg-[#1a2b1a]' }} text-white">
-                                        <span class="text-[10px]">✅</span>
-                                        <span class="text-[9px] font-bold uppercase tracking-tighter">Hadir</span>
-                                    </button>
-                                </div>
-                                <input type="hidden" name="attendance" id="attendanceInput"
-                                    value="{{ $rsvp->attendance }}">
+                                            <span class="text-[10px]">✅</span>
+                                            <span class="text-[9px] font-bold uppercase tracking-tighter">Hadir</span>
+                                        </button>
+                                    </div>
+                                    <input type="hidden" name="attendance" id="attendanceInput"
+                                        value="{{ $rsvp->attendance }}">
 
-                                <button type="submit"
-                                    class="w-full h-8 rounded-md bg-[#1a2b1a] text-white text-[10px] font-bold
+                                    <button type="submit"
+                                        class="w-full h-8 rounded-md bg-[#1a2b1a] text-white text-[10px] font-bold
                                uppercase tracking-widest hover:bg-forest-900 transition-all">
-                                    Kirim
-                                </button>
-                            </form>
-                        @else
-                            <div
-                                class="mb-4 p-3 rounded-lg bg-[#1a2b1a]/50 text-white/70 text-[10px] italic reveal-up w-full">
-                                Silakan gunakan link undangan pribadi Anda untuk memberikan ucapan dan konfirmasi
-                                kehadiran.
-                            </div>
-                        @endif
-
-                        <!-- Wishes List — limited height so it stays inside arch -->
-                        <div id="wishesList"
-                            class="bg-[#1a2b1a] rounded-xl p-3 space-y-2 reveal-up shadow-xl w-full
-                       max-h-[220px] overflow-y-auto scroll-smooth custom-scrollbar">
-                            @foreach ($comments as $comment)
-                                <div
-                                    class="comment-item w-full p-2.5 rounded-lg bg-[#abb5a5]/10 text-left border border-white/5">
-                                    <div class="flex items-start gap-2">
+                                        Kirim
+                                    </button>
+                                </form>
+                            @else
+                                {{-- No RSVP: polished card matching the dark green theme --}}
+                                <div class="mb-4 w-full">
+                                    <div
+                                        class="flex flex-col items-center gap-3 py-8 px-4 rounded-2xl
+                                bg-[#1a2b1a]/70 border border-white/10 text-center">
                                         <div
-                                            class="flex-shrink-0 w-7 h-7 rounded-full bg-forest-700 flex items-center justify-center
-                                        text-[10px] font-bold text-white uppercase">
-                                            {{ substr($comment->name, 0, 1) }}
+                                            class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor"
+                                                stroke-width="1.5" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0
+                                       01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25
+                                       2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07
+                                       1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25
+                                       2.25 0 01-1.07-1.916V6.75" />
+                                            </svg>
                                         </div>
-                                        <div class="flex-1 min-w-0">
-                                            <div class="flex items-center justify-between gap-2 mb-0.5">
-                                                <p class="text-[11px] font-bold text-white truncate">
-                                                    {{ $comment->name }}</p>
-                                                @if ($comment->rsvp?->attendance)
-                                                    <span
-                                                        class="px-1.5 py-0.5 rounded text-[8px] font-bold uppercase
-                                            {{ $comment->rsvp->attendance === 'hadir' ? 'bg-green-900/50 text-green-200' : 'bg-red-900/50 text-red-200' }}">
-                                                        {{ $comment->rsvp->attendance }}
-                                                    </span>
-                                                @endif
-                                            </div>
-                                            <p class="text-[10px] text-white/80 leading-relaxed break-words">
-                                                {{ $comment->comment }}</p>
-                                            <p class="comment-date text-[8px] text-white/40 mt-1">
-                                                {{ $comment->created_at->diffForHumans() }}</p>
+                                        <div>
+                                            <p class="text-white/80 text-[12px] font-semibold mb-1">Undangan Pribadi
+                                            </p>
+                                            <p class="text-white/50 text-[10px] leading-relaxed">
+                                                Gunakan link undangan pribadi<br>untuk mengisi ucapan & konfirmasi.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
+                            @endif
 
-                            <div id="commentsSentinel" class="h-4 w-full"></div>
-                            <div id="commentsLoading" class="hidden py-2 text-center">
-                                <div
-                                    class="inline-block w-4 h-4 border-2 border-white/20 border-t-white/80 rounded-full animate-spin">
+                            {{-- No comments: polished empty state --}}
+                            @if ($comments->isEmpty())
+                                <div class="w-full mt-2">
+                                    <div
+                                        class="flex flex-col items-center gap-2 py-6 px-4 rounded-2xl
+                                bg-[#1a2b1a]/40 border border-white/10 text-center">
+                                        <svg class="w-6 h-6 text-white/25" fill="none" stroke="currentColor"
+                                            stroke-width="1.5" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0
+                                   010 .75m0 0H8.25m.375 0h.375m-1.125
+                                   3.75h.375m-.375 0a.375.375 0 11-.75 0 .375.375
+                                   0 010 .75m0 0H8.25m6-3.75h.375m-.375
+                                   0a.375.375 0 11-.75 0 .375.375 0 010
+                                   .75m0 0h-.375m.375 3.75h.375m-.375
+                                   0a.375.375 0 11-.75 0 .375.375 0 010
+                                   .75m0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <p class="text-white/30 text-[9px] leading-relaxed italic">
+                                            Belum ada ucapan.<br>Jadilah yang pertama!
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            @else
+                                <div class="w-full flex items-center gap-2 mb-2">
+                                    <div class="flex-1 h-px bg-[#1a2b1a]/20"></div>
+                                    <p
+                                        class="text-[#1a2b1a] text-[7px] font-bold uppercase tracking-widest opacity-60">
+                                        Ucapan Tamu</p>
+                                    <div class="flex-1 h-px bg-[#1a2b1a]/20"></div>
+                                </div>
 
+                                <div id="wishesList"
+                                    class="bg-[#1a2b1a] rounded-xl p-3 space-y-2 shadow-xl w-full
+           max-h-[42%] overflow-y-auto scroll-smooth shrink-0">
+                                    @foreach ($comments as $comment)
+                                        <div
+                                            class="comment-item w-full p-2.5 rounded-lg bg-white/5 text-left border border-white/5">
+                                            <div class="flex items-start gap-2">
+                                                <div
+                                                    class="flex-shrink-0 w-6 h-6 rounded-full bg-forest-700 flex items-center
+                                            justify-center text-[9px] font-bold text-white uppercase">
+                                                    {{ substr($comment->name, 0, 1) }}
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <div class="flex items-center justify-between gap-1 mb-0.5">
+                                                        <p class="text-[10px] font-bold text-white truncate">
+                                                            {{ $comment->name }}</p>
+                                                        @if ($comment->rsvp?->attendance)
+                                                            <span
+                                                                class="shrink-0 px-1.5 py-0.5 rounded text-[7px] font-bold uppercase
+                                                {{ $comment->rsvp->attendance === 'hadir' ? 'bg-green-900/50 text-green-200' : 'bg-red-900/50 text-red-200' }}">
+                                                                {{ $comment->rsvp->attendance }}
+                                                            </span>
+                                                        @endif
+                                                    </div>
+                                                    <p class="text-[9px] text-white/70 leading-relaxed break-words">
+                                                        {{ $comment->comment }}</p>
+                                                    <p class="comment-date text-[7px] text-white/30 mt-1">
+                                                        {{ $comment->created_at->diffForHumans() }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                    <div id="commentsSentinel" class="h-2 w-full"></div>
+                                    <div id="commentsLoading" class="hidden py-2 text-center">
+                                        <div
+                                            class="inline-block w-4 h-4 border-2 border-white/20 border-t-white/80 rounded-full animate-spin">
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
+                        </div>
                     </div>
                 </div>
 

@@ -172,8 +172,8 @@ let hasMoreComments = true;
 const createCommentEl = (comment) => {
     const commentEl = document.createElement('div');
     commentEl.className = 'comment-item w-full p-3 rounded-lg bg-[#abb5a5]/10 text-left border border-white/5';
-    
-    const attendanceHtml = comment.rsvp?.attendance 
+
+    const attendanceHtml = comment.rsvp?.attendance
         ? `<span class="px-1.5 py-0.5 rounded text-[8px] font-bold uppercase ${comment.rsvp.attendance === 'hadir' ? 'bg-green-900/50 text-green-200' : 'bg-red-900/50 text-red-200'}">${comment.rsvp.attendance}</span>`
         : '';
 
@@ -270,6 +270,14 @@ if (rsvpForm) {
                     wishesList.insertBefore(commentEl, wishesList.firstChild);
                     wishesList.scrollTop = 0;
                     rsvpForm.querySelector('textarea').value = '';
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Terima Kasih!',
+                        text: 'Konfirmasi dan ucapan Anda telah kami terima.',
+                        timer: 3000,
+                        showConfirmButton: false
+                    });
                 } else {
                     const err = await commentRes.json();
                     Swal.fire({
@@ -279,14 +287,6 @@ if (rsvpForm) {
                     });
                 }
             }
-
-            Swal.fire({
-                icon: 'success',
-                title: 'Terima Kasih!',
-                text: 'Konfirmasi dan ucapan Anda telah kami terima.',
-                timer: 3000,
-                showConfirmButton: false
-            });
         } catch (error) {
             Swal.fire({
                 icon: 'error',

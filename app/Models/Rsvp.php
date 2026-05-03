@@ -26,7 +26,7 @@ class Rsvp extends Model
     {
         static::creating(function (Rsvp $rsvp) {
             if (empty($rsvp->unique_id)) {
-                $rsvp->unique_id = fake()->unique()->bothify('????????####');
+                $rsvp->unique_id = fake()->unique()->bothify('?#?#?#??#?##');
             }
         });
     }
