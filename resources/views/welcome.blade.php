@@ -828,7 +828,7 @@
 
                                 <div id="wishesList"
                                     class="bg-[#1a2b1a] rounded-xl p-3 space-y-2 shadow-xl w-full
-           max-h-[42%] overflow-y-auto scroll-smooth shrink-0">
+           max-h-[40%] overflow-y-auto scroll-smooth shrink-0">
                                     @foreach ($comments as $comment)
                                         <div
                                             class="comment-item w-full p-2.5 rounded-lg bg-white/5 text-left border border-white/5">
