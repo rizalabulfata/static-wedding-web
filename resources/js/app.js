@@ -104,6 +104,45 @@ if (document.getElementById('days')) {
     updateCountdown();
 }
 
+// Save the Date Logic
+const btnSaveDate = document.getElementById('btnSaveDate');
+if (btnSaveDate) {
+    btnSaveDate.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const event = {
+            title: "Pernikahan Mila & Rizal",
+            start: "20260602T070000",
+            end: "20260602T170000",
+            location: "https://maps.app.goo.gl/weVDW2Ubi4gurfu36",
+            description: "Acara Akad dan Resepsi Pernikahan Mila & Rizal"
+        };
+
+        const icsContent = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "BEGIN:VEVENT",
+            `DTSTART:${event.start}`,
+            `DTEND:${event.end}`,
+            `SUMMARY:${event.title}`,
+            `LOCATION:${event.location}`,
+            `DESCRIPTION:${event.description}`,
+            "END:VEVENT",
+            "END:VCALENDAR"
+        ].join("\n");
+
+        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+        const url = window.URL.createObjectURL(blob);
+        const anchor = document.createElement('a');
+        anchor.setAttribute('href', url);
+        anchor.setAttribute('download', 'wedding-mila-rizal.ics');
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+        window.URL.revokeObjectURL(url);
+    });
+}
+
 // Gift Modal Logic
 const btnShowGift = document.getElementById('btnShowGift');
 const btnCloseGift = document.getElementById('btnCloseGift');

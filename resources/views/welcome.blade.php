@@ -16,7 +16,7 @@
 
     <!-- LEFT PANEL (desktop only) -->
     <div id="desktopLeft" class="hidden md:flex flex-1 relative overflow-hidden">
-        <img src="{{ asset('assets/ARV_9022.JPG_2.webp') }}" class="w-full h-full object-cover" alt="">
+        <img src="{{ asset('assets/ARV_9022.JPG-compress.webp') }}" class="w-full h-full object-cover" alt="">
         <!-- Optional overlay branding -->
         <div class="absolute bottom-16 left-12 text-white">
             <p class="text-sm tracking-[0.3em] uppercase font-light mb-2">The Wedding of</p>
@@ -30,7 +30,7 @@
     <div id="desktopRight">
         <!-- Audio Element -->
         <audio id="bgMusic" loop>
-            <source src="{{ asset('assets/bg-sound.mp3') }}" type="audio/mpeg">
+            <source src="{{ asset('assets/bg-audio.mp3') }}" type="audio/mpeg">
         </audio>
 
         <!-- Cover Section -->
@@ -86,7 +86,7 @@
                 <!-- Bird Wrapper handles the final position -->
                 <div class="relative translate-y-60">
                     <!-- Image handles the animation -->
-                    <img src="{{ asset('assets/footer-bird.webp') }}"
+                    <img src="{{ asset('assets/footer-bird-compress.webp') }}"
                         class="w-56 mx-auto animate-fade-up [animation-delay:0.4s] opacity-0" alt="Footer Bird" />
                 </div>
                 <!-- Flowers -->
@@ -128,7 +128,8 @@
 
                 <!-- Footer Birds -->
                 <div class="section-footer w-full">
-                    <img src="{{ asset('assets/footer-bird.webp') }}" class="w-56 mx-auto relative translate-y-60" />
+                    <img src="{{ asset('assets/footer-bird-compress.webp') }}"
+                        class="w-56 mx-auto relative translate-y-60" />
                     <img src="{{ asset('assets/main-footer.webp') }}"
                         class="w-full h-auto object-cover opacity-90 -mt-20 animate-fade-up [animation-delay:0.4s] opacity-0" />
                 </div>
@@ -237,6 +238,95 @@
                 </div>
             </section>
 
+            <!-- Event Section -->
+            <section id="event"
+                class="min-h-screen flex flex-col items-center justify-center bg-forest-two relative overflow-hidden py-10">
+
+                <!-- Floating Decorations -->
+                <img src="{{ asset('assets/butterfly-one.webp') }}"
+                    class="absolute top-16 left-4 w-12 animate-pulse opacity-70 z-10" alt="">
+                <img src="{{ asset('assets/butterfly-second.webp') }}"
+                    class="absolute top-32 right-6 w-14 animate-bounce opacity-60 z-10" alt="">
+                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-4 right-10 w-28 opacity-30 z-10"
+                    alt="">
+
+                <div class="relative z-20 w-full flex flex-col items-center justify-center px-5">
+
+                    <!-- SVG Border Card -->
+                    <div class="reveal-zoom relative w-full max-w-[340px]">
+
+                        <!-- Octagon Border image -->
+                        <img src="{{ asset('assets/foto/border-save-date.webp') }}"
+                            class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none scale-110"
+                            alt="">
+
+                        <!-- Content -->
+                        <div class="relative z-10 flex flex-col items-center text-center px-8 pt-12 pb-10"
+                            style="min-height: 500px;">
+
+                            <!-- Title: Matches Image 2 Script style -->
+                            <h2 class="font-violetbee text-4xl text-white drop-shadow-md mb-6 italic">Save The Date
+                            </h2>
+
+                            <!-- Couple photo circle with Gold Border to match Image 2 -->
+                            <div
+                                class="w-44 h-44 rounded-full overflow-hidden border-[6px] border-[#c2b280] shadow-2xl mb-8">
+                                <img src="{{ asset('assets/ARV_9022.JPG-compress.webp') }}"
+                                    class="w-full h-full object-cover" alt="Couple">
+                            </div>
+
+                            <!-- Countdown boxes: Updated to Gold Background + White Text -->
+                            <div class="flex justify-center gap-2 mb-6">
+                                <div
+                                    class="flex flex-col items-center bg-[#a39366] border border-white/30 rounded-lg px-2 py-2 min-w-[54px] shadow-lg">
+                                    <span id="days" class="text-2xl font-bold text-white leading-none">00</span>
+                                    <span class="text-[9px] font-bold text-white mt-1">Hari</span>
+                                </div>
+                                <div
+                                    class="flex flex-col items-center bg-[#a39366] border border-white/30 rounded-lg px-2 py-2 min-w-[54px] shadow-lg">
+                                    <span id="hours" class="text-2xl font-bold text-white leading-none">00</span>
+                                    <span class="text-[9px] font-bold text-white mt-1">Jam</span>
+                                </div>
+                                <div
+                                    class="flex flex-col items-center bg-[#a39366] border border-white/30 rounded-lg px-2 py-2 min-w-[54px] shadow-lg">
+                                    <span id="minutes" class="text-2xl font-bold text-white leading-none">00</span>
+                                    <span class="text-[9px] font-bold text-white mt-1">Menit</span>
+                                </div>
+                                <div
+                                    class="flex flex-col items-center bg-[#a39366] border border-white/30 rounded-lg px-2 py-2 min-w-[54px] shadow-lg">
+                                    <span id="seconds" class="text-2xl font-bold text-white leading-none">00</span>
+                                    <span class="text-[9px] font-bold text-white mt-1">Detik</span>
+                                </div>
+                            </div>
+
+                            <!-- Date text: White Bold Sans -->
+                            <p class="text-white font-bold text-lg tracking-wide mb-5">Selasa, 02 Juni 2026</p>
+
+                            <!-- Save to calendar button: Updated to Pinkish Cream background -->
+                            <a href="#" id="btnSaveDate"
+                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full text-forest-800 text-xs font-semibold shadow mb-5"
+                                style="background: rgba(255,255,255,0.80);">
+                                <svg class="w-3.5 h-3.5 text-forest-600" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Simpan Tanggal
+                            </a>
+
+                            <!-- Invitation text: Light center alignment -->
+                            <p class="text-white text-[11px] leading-relaxed text-center px-4">
+                                Dengan memohon rahmat dan ridho Allah SWT, kami mengundang<br>
+                                <span class="font-bold">Bapak/Ibu/Saudara/i,</span> untuk menghadiri
+                                acara pernikahan kami:
+                            </p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
             <!-- Resepsi info section -->
             <section id="resepsi-info"
                 class="min-h-screen flex flex-col items-center justify-center bg-forest-two relative overflow-hidden">
@@ -252,7 +342,7 @@
                     <div class="relative w-full max-w-[320px]">
 
                         <!-- The arch border SVG -->
-                        <img src="{{ asset('assets/foto/border-akad-resepsi-info.webp') }}"
+                        <img src="{{ asset('assets/foto/border-akad-resepsi-info-compress.webp') }}"
                             class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none"
                             alt="">
 
@@ -297,7 +387,7 @@
                             </p>
 
                             <!-- Maps button -->
-                            <a href="https://goo.gl/maps/xyz" target="_blank"
+                            <a href="https://maps.app.goo.gl/weVDW2Ubi4gurfu36" target="_blank"
                                 class="mt-5 inline-flex items-center gap-2 px-5 py-2 rounded-full text-forest-800 text-xs font-semibold shadow"
                                 style="background: rgba(255,255,255,0.85);">
                                 <svg class="w-3.5 h-3.5 text-forest-600" fill="none" stroke="currentColor"
@@ -320,7 +410,7 @@
                     <div class="relative w-full max-w-[320px]">
 
                         <!-- The arch border SVG -->
-                        <img src="{{ asset('assets/foto/border-akad-resepsi-info.webp') }}"
+                        <img src="{{ asset('assets/foto/border-akad-resepsi-info-compress.webp') }}"
                             class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none"
                             alt="">
 
@@ -365,7 +455,7 @@
                             </p>
 
                             <!-- Maps button -->
-                            <a href="https://goo.gl/maps/xyz" target="_blank"
+                            <a href="https://maps.app.goo.gl/weVDW2Ubi4gurfu36" target="_blank"
                                 class="mt-5 inline-flex items-center gap-2 px-5 py-2 rounded-full text-forest-800 text-xs font-semibold shadow"
                                 style="background: rgba(255,255,255,0.85);">
                                 <svg class="w-3.5 h-3.5 text-forest-600" fill="none" stroke="currentColor"
@@ -382,95 +472,6 @@
                     </div>
                 </div>
 
-            </section>
-
-            <!-- Event Section -->
-            <section id="event"
-                class="min-h-screen flex flex-col items-center justify-center bg-forest-two relative overflow-hidden py-10">
-
-                <!-- Floating Decorations -->
-                <img src="{{ asset('assets/butterfly-one.webp') }}"
-                    class="absolute top-16 left-4 w-12 animate-pulse opacity-70 z-10" alt="">
-                <img src="{{ asset('assets/butterfly-second.webp') }}"
-                    class="absolute top-32 right-6 w-14 animate-bounce opacity-60 z-10" alt="">
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-4 right-10 w-28 opacity-30 z-10"
-                    alt="">
-
-                <div class="relative z-20 w-full flex flex-col items-center justify-center px-5">
-
-                    <!-- SVG Border Card -->
-                    <div class="reveal-zoom relative w-full max-w-[340px]">
-
-                        <!-- Octagon Border image -->
-                        <img src="{{ asset('assets/foto/border-save-date.webp') }}"
-                            class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none scale-110"
-                            alt="">
-
-                        <!-- Content -->
-                        <div class="relative z-10 flex flex-col items-center text-center px-8 pt-12 pb-10"
-                            style="min-height: 500px;">
-
-                            <!-- Title: Matches Image 2 Script style -->
-                            <h2 class="font-violetbee text-4xl text-white drop-shadow-md mb-6 italic">Save The Date
-                            </h2>
-
-                            <!-- Couple photo circle with Gold Border to match Image 2 -->
-                            <div
-                                class="w-44 h-44 rounded-full overflow-hidden border-[6px] border-[#c2b280] shadow-2xl mb-8">
-                                <img src="{{ asset('assets/ARV_9022.JPG_2.webp') }}"
-                                    class="w-full h-full object-cover" alt="Couple">
-                            </div>
-
-                            <!-- Countdown boxes: Updated to Gold Background + White Text -->
-                            <div class="flex justify-center gap-2 mb-6">
-                                <div
-                                    class="flex flex-col items-center bg-[#a39366] border border-white/30 rounded-lg px-2 py-2 min-w-[54px] shadow-lg">
-                                    <span id="days" class="text-2xl font-bold text-white leading-none">00</span>
-                                    <span class="text-[9px] font-bold text-white mt-1">Hari</span>
-                                </div>
-                                <div
-                                    class="flex flex-col items-center bg-[#a39366] border border-white/30 rounded-lg px-2 py-2 min-w-[54px] shadow-lg">
-                                    <span id="hours" class="text-2xl font-bold text-white leading-none">00</span>
-                                    <span class="text-[9px] font-bold text-white mt-1">Jam</span>
-                                </div>
-                                <div
-                                    class="flex flex-col items-center bg-[#a39366] border border-white/30 rounded-lg px-2 py-2 min-w-[54px] shadow-lg">
-                                    <span id="minutes" class="text-2xl font-bold text-white leading-none">00</span>
-                                    <span class="text-[9px] font-bold text-white mt-1">Menit</span>
-                                </div>
-                                <div
-                                    class="flex flex-col items-center bg-[#a39366] border border-white/30 rounded-lg px-2 py-2 min-w-[54px] shadow-lg">
-                                    <span id="seconds" class="text-2xl font-bold text-white leading-none">00</span>
-                                    <span class="text-[9px] font-bold text-white mt-1">Detik</span>
-                                </div>
-                            </div>
-
-                            <!-- Date text: White Bold Sans -->
-                            <p class="text-white font-bold text-lg tracking-wide mb-5">Selasa, 02 Juni 2026</p>
-
-                            <!-- Save to calendar button: Updated to Pinkish Cream background -->
-                            <a href="#"
-                                class="inline-flex items-center gap-2 px-6 py-2 rounded-full text-forest-800 text-xs font-semibold shadow mb-5"
-                                style="background: rgba(255,255,255,0.80);">
-                                <svg class="w-3.5 h-3.5 text-forest-600" fill="none" stroke="currentColor"
-                                    stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                                Simpan Tanggal
-                            </a>
-
-                            <!-- Invitation text: Light center alignment -->
-                            <p class="text-white text-[11px] leading-relaxed text-center px-4">
-                                Dengan memohon rahmat dan ridho Allah SWT, kami mengundang<br>
-                                <span class="font-bold">Bapak/Ibu/Saudara/i,</span> untuk menghadiri
-                                acara pernikahan kami:
-                            </p>
-
-                        </div>
-                    </div>
-
-                </div>
             </section>
 
             <!-- Story Section -->
@@ -596,7 +597,8 @@
                 <div class="section-footer w-full">
 
                     <!-- Bird -->
-                    <img src="{{ asset('assets/footer-bird.webp') }}" class="w-56 mx-auto relative translate-y-60" />
+                    <img src="{{ asset('assets/footer-bird-compress.webp') }}"
+                        class="w-56 mx-auto relative translate-y-60" />
 
                     <!-- Flowers -->
                     <img src="{{ asset('assets/main-footer.webp') }}"
@@ -663,7 +665,8 @@
                 <div class="section-footer w-full">
 
                     <!-- Bird -->
-                    <img src="{{ asset('assets/footer-bird.webp') }}" class="w-56 mx-auto relative translate-y-60" />
+                    <img src="{{ asset('assets/footer-bird-compress.webp') }}"
+                        class="w-56 mx-auto relative translate-y-60" />
 
                     <!-- Flowers -->
                     <img src="{{ asset('assets/main-footer.webp') }}"
@@ -874,7 +877,8 @@
 
                 <!-- Footer -->
                 <div class="section-footer w-full">
-                    <img src="{{ asset('assets/footer-bird.webp') }}" class="w-56 mx-auto relative translate-y-60" />
+                    <img src="{{ asset('assets/footer-bird-compress.webp') }}"
+                        class="w-56 mx-auto relative translate-y-60" />
                     <img src="{{ asset('assets/main-footer.webp') }}"
                         class="w-full h-auto object-cover opacity-90 -mt-20 animate-fade-up [animation-delay:0.4s] opacity-0" />
                 </div>
@@ -896,7 +900,7 @@
                     <!-- Arched Photo Container -->
                     <div class="relative w-full max-w-[280px] mb-8 reveal-zoom">
                         <!-- The arch border / photo asset -->
-                        <img src="{{ asset('assets/foto/closing-photo.webp') }}"
+                        <img src="{{ asset('assets/foto/closing-photo-compress.webp') }}"
                             class="w-full h-auto object-contain relative z-10" alt="Closing Photo">
                     </div>
 
@@ -924,7 +928,8 @@
                 <!-- Integrated Footer Layers -->
                 <div class="section-footer w-full">
                     <!-- Bird -->
-                    <img src="{{ asset('assets/footer-bird.webp') }}" class="w-56 mx-auto relative translate-y-60" />
+                    <img src="{{ asset('assets/footer-bird-compress.webp') }}"
+                        class="w-56 mx-auto relative translate-y-60" />
 
                     <!-- Flowers -->
                     <img src="{{ asset('assets/main-footer.webp') }}"
