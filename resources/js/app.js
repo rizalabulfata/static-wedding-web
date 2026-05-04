@@ -169,15 +169,16 @@ if (btnShowGift && btnCloseGift && giftModal) {
 }
 
 // Copy to Clipboard
-window.copyToClipboard = function (text) {
-    navigator.clipboard.writeText(text);
-    Swal.fire({
-        icon: 'success',
-        title: 'Berhasil!',
-        text: 'Nomor rekening berhasil disalin.',
-        timer: 2000,
-        showConfirmButton: false
-    });
+window.copyToClipboard = function (number, btn) {
+    navigator.clipboard.writeText(number);
+    const icon = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>`;
+    const original = btn.innerHTML;
+    btn.innerHTML = icon + ' Tersalin!';
+    btn.classList.add('!bg-forest-700', '!border-forest-700', '!text-white');
+    setTimeout(() => {
+        btn.innerHTML = original;
+        btn.classList.remove('!bg-forest-700', '!border-forest-700', '!text-white');
+    }, 2000);
 }
 
 // Audio Control Logic

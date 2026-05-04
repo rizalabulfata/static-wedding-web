@@ -30,7 +30,7 @@
     <div id="desktopRight">
         <!-- Audio Element -->
         <audio id="bgMusic" loop>
-            <source src="{{ asset('assets/bg-audio.mp3') }}" type="audio/mpeg">
+            <source src="{{ asset('assets/bg-audio-2.mp3') }}" type="audio/mpeg">
         </audio>
 
         <!-- Cover Section -->
@@ -114,9 +114,11 @@
                     alt="Animated Cloud">
                 <img src="{{ asset('assets/header-main-bg.webp') }}" class="absolute top-0 left-0" alt="">
 
-                <div class="container mx-auto px-6 text-center z-10">
-                    <h2 class="font-serif text-2xl md:text-3xl text-white mb-2 reveal-up">The Wedding of</h2>
-                    <h1 class="font-violetbee text-6xl text-white mb-6 reveal-up">Mila & Rizal</h1>
+                <div class="container mx-auto px-6 text-center z-4">
+                    <div class="mt-10">
+                        <h2 class="font-serif text-2xl md:text-3xl text-white mb-2 reveal-up">The Wedding of</h2>
+                        <h1 class="font-violetbee text-6xl text-white mb-10 reveal-up">Mila & Rizal</h1>
+                    </div>
 
                     <div class="animate-fade-up mb-8 translate-y-10 z-10">
                         <div class="relative inline-block">
@@ -149,20 +151,17 @@
                         style="border-radius: 50% 50% 50% 50% / 8% 8% 8% 8%; background: rgba(255,255,255,0.18); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.35); padding: 3rem 2rem 3rem;">
 
                         <!-- Top text -->
-                        <div class="text-center mb-6 reveal-up text-white font-violetbee text-3xl">
-                            <h2 class="mb-1">We Are</h2>
+                        <div class="text-center mb-4 reveal-up text-white font-violetbee text-5xl">
+                            <h2>We Are</h2>
                             <h2>Getting Married</h2>
                         </div>
 
-                        <div class="w-16 h-px bg-forest-400/50 mx-auto mb-6"></div>
+                        <div class="w-16 h-px bg-forest-400/50 mx-auto mb-4"></div>
 
                         <!-- Ayat -->
                         <div class="reveal-up text-center mb-6 px-2 text-white">
-                            <p class="text-sm text-white mb-3 leading-relaxed font-semibold">بِسْمِ اللَّهِ
-                                الرَّحْمَنِ الرَّحِيمِ</p>
-                            <p class="text-xs leading-relaxed italic">
-                                Assalamu`alaikum
-                                Warahmatullahi Wabarakatuh
+                            <p class="text-sm text-white mb-3 leading-relaxed font-semibold">
+                                السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ
                             </p>
                             <p class="text-xs leading-relaxed italic">
                                 Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga
@@ -182,7 +181,7 @@
                                 </div>
                             </div>
                             <h3 class="font-violetbee text-4xl text-white mb-1">Mila</h3>
-                            <p class="font-serif text-sm font-bold text-white">Jamilatul Aisyiah</p>
+                            <p class="font-bold text-white text-xl">Jamilatul Aisyiah</p>
                             <p class="text-xs text-white mt-1">Putri Bapak Jamak dan Ibu Hafidatul Aini</p>
                             <a href="#"
                                 class="mt-3 inline-flex items-center gap-1 px-4 py-1.5 rounded-full text-xs text-white font-medium"
@@ -216,7 +215,7 @@
                                 </div>
                             </div>
                             <h3 class="font-violetbee text-4xl text-white mb-1">Rizal</h3>
-                            <p class="font-serif text-sm font-bold text-white">Rizal Abul Fata</p>
+                            <p class="font-bold text-white text-xl">Rizal Abul Fata</p>
                             <p class="text-xs text-white mt-1">Putra Bapak Abd. Wasit dan Ibu Sitti Hasilah</p>
                             <a href="#"
                                 class="mt-3 inline-flex items-center gap-1 px-4 py-1.5 rounded-full text-xs text-white font-medium"
@@ -265,7 +264,7 @@
                             style="min-height: 500px;">
 
                             <!-- Title: Matches Image 2 Script style -->
-                            <h2 class="font-violetbee text-4xl text-white drop-shadow-md mb-6 italic">Save The Date
+                            <h2 class="font-violetbee text-6xl text-white drop-shadow-md mb-6 italic">Save The Date
                             </h2>
 
                             <!-- Couple photo circle with Gold Border to match Image 2 -->
@@ -313,17 +312,23 @@
                                 </svg>
                                 Simpan Tanggal
                             </a>
-
-                            <!-- Invitation text: Light center alignment -->
-                            <p class="text-white text-[11px] leading-relaxed text-center px-4">
-                                Dengan memohon rahmat dan ridho Allah SWT, kami mengundang<br>
-                                <span class="font-bold">Bapak/Ibu/Saudara/i,</span> untuk menghadiri
-                                acara pernikahan kami:
-                            </p>
-
                         </div>
                     </div>
 
+                </div>
+            </section>
+
+            <section id="invitation-text" class="py-32 bg-white relative overflow-hidden">
+                <div class="container mx-auto px-6 text-center mb-24">
+                    <p class="text-gray-600 mb-12 reveal-up">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang
+                        Bapak/Ibu/Saudara/i, untuk menghadiri acara pernikahan kami:
+                    </p>
+
+                </div>
+
+                <div class="section-footer">
+                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-80"
+                        alt="">
                 </div>
             </section>
 
@@ -357,7 +362,7 @@
                             </div>
 
                             <!-- Script title -->
-                            <h2 class="font-violetbee text-4xl text-white mb-2 drop-shadow">Akad Nikah</h2>
+                            <h2 class="font-violetbee text-6xl text-white mb-2 drop-shadow">Akad Nikah</h2>
 
                             <!-- Day & Date -->
                             <p class="text-white font-bold text-base tracking-widest uppercase mt-1">Selasa</p>
@@ -425,7 +430,7 @@
                             </div>
 
                             <!-- Script title -->
-                            <h2 class="font-violetbee text-4xl text-white mb-2 drop-shadow">Resepsi</h2>
+                            <h2 class="font-violetbee text-6xl text-white mb-2 drop-shadow">Resepsi</h2>
 
                             <!-- Day & Date -->
                             <p class="text-white font-bold text-base tracking-widest uppercase mt-1">Selasa</p>
@@ -1030,40 +1035,6 @@
             </div>
         </nav>
 
-        <!-- Gift Modal -->
-        <div id="giftModal"
-            class="fixed inset-0 z-[110] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
-            <div
-                class="bg-white rounded-2xl p-8 max-w-md w-full mx-6 transform scale-90 transition-transform duration-300">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="font-serif text-2xl text-forest-800">Rekening Kami</h3>
-                    <button id="btnCloseGift" class="text-gray-400 hover:text-gray-600">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div class="space-y-4">
-                    <div class="bg-forest-50 p-4 rounded-xl border border-forest-100">
-                        <p class="text-xs uppercase text-forest-600 font-bold mb-1">Bank BCA</p>
-                        <p class="text-lg font-mono text-forest-900 mb-2">1234567890</p>
-                        <p class="text-sm text-forest-600 mb-3">a.n Rendy Hanif</p>
-                        <button onclick="copyToClipboard('1234567890')"
-                            class="w-full py-2 bg-forest-700 text-white text-sm rounded-lg hover:bg-forest-800 transition-colors">Salin
-                            No. Rekening</button>
-                    </div>
-                    <div class="bg-forest-50 p-4 rounded-xl border border-forest-100">
-                        <p class="text-xs uppercase text-forest-600 font-bold mb-1">Bank Mandiri</p>
-                        <p class="text-lg font-mono text-forest-900 mb-2">0987654321</p>
-                        <p class="text-sm text-forest-600 mb-3">a.n Arumi Shalwa</p>
-                        <button onclick="copyToClipboard('0987654321')"
-                            class="w-full py-2 bg-forest-700 text-white text-sm rounded-lg hover:bg-forest-800 transition-colors">Salin
-                            No. Rekening</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Audio Control Button -->
         <button id="btnAudio"
             class="fixed bottom-28 md:bottom-24 right-7 z-50 w-12 h-12 bg-white/80 backdrop-blur-md rounded-full shadow-lg flex items-center justify-center text-forest-700 opacity-0 transition-opacity duration-500">
@@ -1077,6 +1048,151 @@
                 <path d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
         </button>
+    </div>
+
+    <!-- Gift Modal -->
+    <div id="giftModal"
+        class="fixed inset-0 z-[110] flex items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+
+        <div
+            class="bg-[#faf9f6] rounded-3xl w-full max-w-[440px] mx-5 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col transform scale-90 transition-transform duration-300">
+
+            {{-- Header --}}
+            <div class="relative px-7 pt-7 pb-6 bg-gradient-to-br from-forest-700 to-forest-900 shrink-0">
+                <div
+                    class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent">
+                </div>
+
+                <div class="flex justify-between items-start">
+                    <button id="btnCloseGift"
+                        class="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white/60 hover:bg-white/20 hover:text-white transition-all duration-200">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <h3 class="font-serif text-[28px] font-semibold text-white mt-4 leading-tight">Rekening Kami</h3>
+                <p class="text-sm text-white/50 mt-1 font-light tracking-wide">Pilih metode transfer yang Anda
+                    inginkan</p>
+            </div>
+
+            {{-- Scrollable Body --}}
+            <div
+                class="px-6 py-5 overflow-y-auto flex-1 scrollbar-thin scrollbar-thumb-forest-200 scrollbar-track-transparent">
+
+                <p class="text-[10px] font-medium tracking-[1.5px] uppercase text-forest-400 mb-3">E-Wallet</p>
+
+                {{-- ShopeePay/Dana/GoPay --}}
+                <div
+                    class="relative bg-white border border-forest-100 rounded-2xl p-[18px] mb-3 overflow-hidden group hover:-translate-y-px hover:border-forest-300 hover:shadow-lg hover:shadow-forest-900/10 transition-all duration-200">
+                    <div
+                        class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-forest-500 to-forest-700 rounded-r">
+                    </div>
+                    <div class="flex justify-between items-center mb-2.5">
+                        <span
+                            class="text-[10px] font-medium tracking-widest uppercase text-forest-600 bg-forest-50 border border-forest-200 px-2 py-0.5 rounded-full">ShopeePay
+                            · Dana · GoPay</span>
+                        <span
+                            class="w-7 h-7 rounded-lg bg-gradient-to-br from-forest-600 to-forest-800 flex items-center justify-center text-white text-[10px] font-semibold">💚</span>
+                    </div>
+                    <p class="font-serif text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
+                        0823 0168 4881</p>
+                    <p class="text-xs text-forest-500 mb-3.5">a.n Jamilatul Aisyiah</p>
+                    <button onclick="copyToClipboard('082301684881', this)"
+                        class="copy-btn w-full py-2.5 flex items-center justify-center gap-1.5 bg-forest-50 border-[1.5px] border-forest-200 rounded-xl text-forest-700 text-[13px] font-medium hover:bg-forest-700 hover:border-forest-700 hover:text-white transition-all duration-200">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        Salin Nomor
+                    </button>
+                </div>
+
+                <div class="h-px bg-gradient-to-r from-transparent via-forest-200 to-transparent my-4"></div>
+                <p class="text-[10px] font-medium tracking-[1.5px] uppercase text-forest-400 mb-3">Rekening Bank
+                </p>
+
+                {{-- Seabank --}}
+                <div
+                    class="relative bg-white border border-forest-100 rounded-2xl p-[18px] mb-3 overflow-hidden group hover:-translate-y-px hover:border-forest-300 hover:shadow-lg hover:shadow-forest-900/10 transition-all duration-200">
+                    <div
+                        class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-forest-500 to-forest-700 rounded-r">
+                    </div>
+                    <div class="flex justify-between items-center mb-2.5">
+                        <span
+                            class="text-[10px] font-medium tracking-widest uppercase text-forest-600 bg-forest-50 border border-forest-200 px-2 py-0.5 rounded-full">SeaBank</span>
+                        <span
+                            class="w-7 h-7 rounded-lg bg-gradient-to-br from-forest-600 to-forest-800 flex items-center justify-center text-white text-[10px] font-semibold">SB</span>
+                    </div>
+                    <p class="font-serif text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
+                        9012 6653 4460</p>
+                    <p class="text-xs text-forest-500 mb-3.5">a.n Jamilatul Aisyiah</p>
+                    <button onclick="copyToClipboard('901266534460', this)"
+                        class="copy-btn w-full py-2.5 flex items-center justify-center gap-1.5 bg-forest-50 border-[1.5px] border-forest-200 rounded-xl text-forest-700 text-[13px] font-medium hover:bg-forest-700 hover:border-forest-700 hover:text-white transition-all duration-200">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        Salin No. Rekening
+                    </button>
+                </div>
+
+                {{-- BCA --}}
+                <div
+                    class="relative bg-white border border-forest-100 rounded-2xl p-[18px] mb-3 overflow-hidden group hover:-translate-y-px hover:border-forest-300 hover:shadow-lg hover:shadow-forest-900/10 transition-all duration-200">
+                    <div
+                        class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-forest-500 to-forest-700 rounded-r">
+                    </div>
+                    <div class="flex justify-between items-center mb-2.5">
+                        <span
+                            class="text-[10px] font-medium tracking-widest uppercase text-forest-600 bg-forest-50 border border-forest-200 px-2 py-0.5 rounded-full">Bank
+                            BCA</span>
+                        <span
+                            class="w-7 h-7 rounded-lg bg-gradient-to-br from-forest-600 to-forest-800 flex items-center justify-center text-white text-[10px] font-semibold">BCA</span>
+                    </div>
+                    <p class="font-serif text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
+                        1931 4043 30</p>
+                    <p class="text-xs text-forest-500 mb-3.5">a.n Rizal Abul Fata</p>
+                    <button onclick="copyToClipboard('1931404330', this)"
+                        class="copy-btn w-full py-2.5 flex items-center justify-center gap-1.5 bg-forest-50 border-[1.5px] border-forest-200 rounded-xl text-forest-700 text-[13px] font-medium hover:bg-forest-700 hover:border-forest-700 hover:text-white transition-all duration-200">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        Salin No. Rekening
+                    </button>
+                </div>
+
+                {{-- Mandiri --}}
+                <div
+                    class="relative bg-white border border-forest-100 rounded-2xl p-[18px] mb-3 overflow-hidden group hover:-translate-y-px hover:border-forest-300 hover:shadow-lg hover:shadow-forest-900/10 transition-all duration-200">
+                    <div
+                        class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-forest-500 to-forest-700 rounded-r">
+                    </div>
+                    <div class="flex justify-between items-center mb-2.5">
+                        <span
+                            class="text-[10px] font-medium tracking-widest uppercase text-forest-600 bg-forest-50 border border-forest-200 px-2 py-0.5 rounded-full">Bank
+                            Mandiri</span>
+                        <span
+                            class="w-7 h-7 rounded-lg bg-gradient-to-br from-forest-600 to-forest-800 flex items-center justify-center text-white text-[10px] font-semibold">MDR</span>
+                    </div>
+                    <p class="font-serif text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
+                        1400 0213 89102</p>
+                    <p class="text-xs text-forest-500 mb-3.5">a.n Rizal Abul Fata</p>
+                    <button onclick="copyToClipboard('1400021389102', this)"
+                        class="copy-btn w-full py-2.5 flex items-center justify-center gap-1.5 bg-forest-50 border-[1.5px] border-forest-200 rounded-xl text-forest-700 text-[13px] font-medium hover:bg-forest-700 hover:border-forest-700 hover:text-white transition-all duration-200">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        Salin No. Rekening
+                    </button>
+                </div>
+
+            </div>
+        </div>
     </div>
 
 </body>
