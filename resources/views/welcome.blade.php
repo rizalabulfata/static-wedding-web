@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Mila & Rizal</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -20,7 +20,7 @@
         <!-- Optional overlay branding -->
         <div class="absolute bottom-16 left-12 text-white">
             <p class="text-sm tracking-[0.3em] uppercase font-light mb-2">The Wedding of</p>
-            <h1 class="font-serif text-6xl">Mila & Rizal</h1>
+            <h1 class="font-sans text-6xl">Mila & Rizal</h1>
             <p class="mt-3 text-sm tracking-widest text-white/70">2 . 6 . 26</p>
         </div>
         <!-- Dark gradient at bottom -->
@@ -48,9 +48,9 @@
             <canvas id="lottie-bird" class="absolute top-30 right-10"></canvas>
 
             <!-- Top: Title + Date (absolute so it doesn't affect flow) -->
-            <div class="absolute top-40 left-0 right-0 text-center z-10 text-white">
-                <h2 class="font-serif text-lg tracking-widest italic font-semibold">Invitation Wedding</h2>
-                <p class="mt-2 text-base tracking-[0.4em] text-[#e8e0c8]">2 . 6 . 2 6</p>
+            <div class="absolute top-32 md:top-40 left-0 right-0 text-center z-10 text-white">
+                <h2 class="font-sans text-lg tracking-widest italic font-semibold">Invitation Wedding</h2>
+                <p class="mt-2 text-base font-bold tracking-[0.4em] text-[#e8e0c8]">2 . 6 . 2 6</p>
             </div>
 
             <!-- Spacer to push content down past the mountain -->
@@ -116,7 +116,7 @@
 
                 <div class="container mx-auto px-6 text-center z-4">
                     <div class="mt-10">
-                        <h2 class="font-serif text-2xl md:text-3xl text-white mb-2 reveal-up">The Wedding of</h2>
+                        <h2 class="font-sans text-2xl md:text-3xl text-white mb-2 reveal-up">The Wedding of</h2>
                         <h1 class="font-violetbee text-6xl text-white mb-10 reveal-up">Mila & Rizal</h1>
                     </div>
 
@@ -180,7 +180,7 @@
                                         class="w-full h-full object-cover" alt="Bride">
                                 </div>
                             </div>
-                            <h3 class="font-violetbee text-4xl text-white mb-1">Mila</h3>
+                            <h3 class="font-violetbee text-5xl text-white mb-1">Mila</h3>
                             <p class="font-bold text-white text-xl">Jamilatul Aisyiah</p>
                             <p class="text-xs text-white mt-1">Putri Bapak Jamak dan Ibu Hafidatul Aini</p>
                             <a href="#"
@@ -214,7 +214,7 @@
                                         class="w-full h-full object-cover" alt="Groom">
                                 </div>
                             </div>
-                            <h3 class="font-violetbee text-4xl text-white mb-1">Rizal</h3>
+                            <h3 class="font-violetbee text-5xl text-white mb-1">Rizal</h3>
                             <p class="font-bold text-white text-xl">Rizal Abul Fata</p>
                             <p class="text-xs text-white mt-1">Putra Bapak Abd. Wasit dan Ibu Sitti Hasilah</p>
                             <a href="#"
@@ -615,13 +615,17 @@
 
             <!-- Gallery Section -->
             <section id="gallery" class="pt-24 pb-60 bg-forest-pattern relative overflow-hidden">
+                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow"
+                    alt="Animated Cloud">
+                <img src="{{ asset('assets/header-main-bg.webp') }}" class="absolute top-0 left-0" alt="">
+
                 <!-- Title -->
-                <div class="container mx-auto px-4 mb-10 relative z-10 text-center">
-                    <h2 class="font-violetbee text-5xl text-white drop-shadow-md">Our Galery</h2>
+                <div class="container mx-auto px-4 pt-5 mb-10 relative z-10 text-center">
+                    <h2 class="font-violetbee text-6xl text-white drop-shadow-md">Our Galery</h2>
                 </div>
 
                 <!-- Main Grid: 50/50 Split with Unified Gap 2 -->
-                <div class="container mx-auto px-4 grid grid-cols-1 gap-2 relative z-10 max-w-[420px]">
+                <div class="container mx-auto px-4  grid grid-cols-1 gap-2 relative z-10 max-w-[420px]">
 
                     <!-- Row 1: Top Wide Image -->
                     <div class="reveal-zoom">
@@ -683,7 +687,7 @@
             <!-- Gift Section -->
             <section id="gift" class="py-32 bg-white relative overflow-hidden">
                 <div class="container mx-auto px-6 text-center mb-24">
-                    <h2 class="font-serif text-4xl text-forest-800 mb-6 reveal-up uppercase tracking-widest">Kado
+                    <h2 class="font-sans text-4xl text-forest-800 mb-6 reveal-up uppercase tracking-widest">Kado
                         Digital
                     </h2>
                     <p class="text-gray-600 mb-12 reveal-up">Doa restu Anda merupakan karunia yang sangat berarti bagi
@@ -1073,7 +1077,7 @@
                     </button>
                 </div>
 
-                <h3 class="font-serif text-[28px] font-semibold text-white mt-4 leading-tight">Rekening Kami</h3>
+                <h3 class="font-sans text-[28px] font-semibold text-white mt-4 leading-tight">Rekening Kami</h3>
                 <p class="text-sm text-white/50 mt-1 font-light tracking-wide">Pilih metode transfer yang Anda
                     inginkan</p>
             </div>
@@ -1097,7 +1101,7 @@
                         <span
                             class="w-7 h-7 rounded-lg bg-gradient-to-br from-forest-600 to-forest-800 flex items-center justify-center text-white text-[10px] font-semibold">💚</span>
                     </div>
-                    <p class="font-serif text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
+                    <p class="font-sans text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
                         0823 0168 4881</p>
                     <p class="text-xs text-forest-500 mb-3.5">a.n Jamilatul Aisyiah</p>
                     <button onclick="copyToClipboard('082301684881', this)"
@@ -1126,7 +1130,7 @@
                         <span
                             class="w-7 h-7 rounded-lg bg-gradient-to-br from-forest-600 to-forest-800 flex items-center justify-center text-white text-[10px] font-semibold">SB</span>
                     </div>
-                    <p class="font-serif text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
+                    <p class="font-sans text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
                         9012 6653 4460</p>
                     <p class="text-xs text-forest-500 mb-3.5">a.n Jamilatul Aisyiah</p>
                     <button onclick="copyToClipboard('901266534460', this)"
@@ -1152,7 +1156,7 @@
                         <span
                             class="w-7 h-7 rounded-lg bg-gradient-to-br from-forest-600 to-forest-800 flex items-center justify-center text-white text-[10px] font-semibold">BCA</span>
                     </div>
-                    <p class="font-serif text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
+                    <p class="font-sans text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
                         1931 4043 30</p>
                     <p class="text-xs text-forest-500 mb-3.5">a.n Rizal Abul Fata</p>
                     <button onclick="copyToClipboard('1931404330', this)"
@@ -1178,7 +1182,7 @@
                         <span
                             class="w-7 h-7 rounded-lg bg-gradient-to-br from-forest-600 to-forest-800 flex items-center justify-center text-white text-[10px] font-semibold">MDR</span>
                     </div>
-                    <p class="font-serif text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
+                    <p class="font-sans text-2xl font-semibold text-forest-950 tracking-wide leading-none mb-1">
                         1400 0213 89102</p>
                     <p class="text-xs text-forest-500 mb-3.5">a.n Rizal Abul Fata</p>
                     <button onclick="copyToClipboard('1400021389102', this)"
