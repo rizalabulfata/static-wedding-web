@@ -116,7 +116,7 @@
 
                 <div class="container mx-auto px-6 text-center z-4">
                     <div class="mt-10">
-                        <h2 class="font-sans text-xl md:text-3xl text-white mb-2 reveal-up">The Wedding of</h2>
+                        <h2 class="font-sans text-2xl md:text-2xl text-white mb-2 reveal-up">The Wedding of</h2>
                         <h1 class="font-violetbee text-6xl text-white mb-10 reveal-up">Mila & Rizal</h1>
                     </div>
 
@@ -156,7 +156,7 @@
                             <h2>Getting Married</h2>
                         </div>
 
-                        <div class="w-16 h-px bg-forest-400/50 mx-auto mb-4"></div>
+                        <div class="w-16 h-px bg-white mx-auto mb-4"></div>
 
                         <!-- Ayat -->
                         <div class="reveal-up text-center mb-6 px-2 text-white">
@@ -176,7 +176,7 @@
                             <div class="relative w-64 h-64 mx-auto mb-4">
                                 <div
                                     class="w-full h-full rounded-full overflow-hidden border-4 border-white/60 shadow-lg">
-                                    <img src="{{ asset('assets/foto/couple-woman.webp') }}"
+                                    <img src="{{ asset('assets/foto/couple-woman_compressed_2.webp') }}"
                                         class="w-full h-full object-cover" alt="Bride">
                                 </div>
                             </div>
@@ -210,7 +210,7 @@
                             <div class="relative w-64 h-64 mx-auto mb-4">
                                 <div
                                     class="w-full h-full rounded-full overflow-hidden border-4 border-white/60 shadow-lg">
-                                    <img src="{{ asset('assets/foto/couple-man.webp') }}"
+                                    <img src="{{ asset('assets/foto/couple-man_compressed_2.webp') }}"
                                         class="w-full h-full object-cover" alt="Groom">
                                 </div>
                             </div>
@@ -907,7 +907,7 @@
                 <div class="relative z-20 w-full flex flex-col items-center px-6 ">
 
                     <!-- Arched Photo Container -->
-                    <div class="relative w-full max-w-[230px] mb-8 reveal-zoom">
+                    <div class="relative w-full max-w-[230px] md:max-w-[300px] sm:max-w-[200px] mb-8 reveal-zoom">
                         <!-- The arch border / photo asset -->
                         <img src="{{ asset('assets/foto/closing-photo-compress.webp') }}"
                             class="w-full h-auto object-contain relative z-10" alt="Closing Photo">
