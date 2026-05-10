@@ -116,7 +116,7 @@
 
                 <div class="container mx-auto px-6 text-center z-4">
                     <div class="mt-10">
-                        <h2 class="font-sans text-2xl md:text-3xl text-white mb-2 reveal-up">The Wedding of</h2>
+                        <h2 class="font-sans text-xl md:text-3xl text-white mb-2 reveal-up">The Wedding of</h2>
                         <h1 class="font-violetbee text-6xl text-white mb-10 reveal-up">Mila & Rizal</h1>
                     </div>
 
@@ -183,7 +183,7 @@
                             <h3 class="font-violetbee text-5xl text-white mb-1">Mila</h3>
                             <p class="font-bold text-white text-xl">Jamilatul Aisyiah</p>
                             <p class="text-xs text-white mt-1">Putri Bapak Jamak dan Ibu Hafidatul Aini</p>
-                            <a href="#"
+                            <a href="https://www.instagram.com/jaaisyh" target="_blank"
                                 class="mt-3 inline-flex items-center gap-1 px-4 py-1.5 rounded-full text-xs text-white font-medium"
                                 style="background: rgba(50,74,50,0.7);">
                                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
@@ -216,8 +216,8 @@
                             </div>
                             <h3 class="font-violetbee text-5xl text-white mb-1">Rizal</h3>
                             <p class="font-bold text-white text-xl">Rizal Abul Fata</p>
-                            <p class="text-xs text-white mt-1">Putra Bapak Abd. Wasit dan Ibu Sitti Hasilah</p>
-                            <a href="#"
+                            <p class="text-xs text-white mt-1">Putra Bapak Abd. Wasit dan Ibu Siti Hasilah</p>
+                            <a href="https://www.instagram.com/rizalabulfata" target="_blank"
                                 class="mt-3 inline-flex items-center gap-1 px-4 py-1.5 rounded-full text-xs text-white font-medium"
                                 style="background: rgba(50,74,50,0.7);">
                                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
@@ -895,7 +895,7 @@
 
             <!-- Final Footer Section -->
             <footer id="footer"
-                class="min-h-screen flex flex-col items-center justify-start pt-16 bg-forest-three relative overflow-hidden">
+                class="min-h-screen flex flex-col items-center justify-start pt-10 bg-forest-three relative overflow-hidden">
 
                 <!-- Floating Decorations -->
                 <img src="{{ asset('assets/butterfly-one.webp') }}"
@@ -907,7 +907,7 @@
                 <div class="relative z-20 w-full flex flex-col items-center px-6 ">
 
                     <!-- Arched Photo Container -->
-                    <div class="relative w-full max-w-[280px] mb-8 reveal-zoom">
+                    <div class="relative w-full max-w-[220px] mb-8 reveal-zoom">
                         <!-- The arch border / photo asset -->
                         <img src="{{ asset('assets/foto/closing-photo-compress.webp') }}"
                             class="w-full h-auto object-contain relative z-10" alt="Closing Photo">
@@ -920,11 +920,11 @@
                             memberikan do'a restu kepada kami
                         </p>
 
-                        <p class="text-[14px] font-medium">
-                            Wassalamu'alaikum Wr. Wb.
+                        <p class="text-[14px] font-semibold" dir="rtl">
+                            والسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ
                         </p>
 
-                        <p class="text-[13px] font-medium">
+                        <p class="text-[13px] font-medium pt-3">
                             Kami yang berbahagia
                         </p>
 
