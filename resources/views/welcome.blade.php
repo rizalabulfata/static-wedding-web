@@ -899,15 +899,15 @@
 
                 <!-- Floating Decorations -->
                 <img src="{{ asset('assets/butterfly-one.webp') }}"
-                    class="absolute top-20 left-4 w-12 animate-pulse opacity-70 z-10" alt="">
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-6 right-6 w-28 opacity-40 z-10"
-                    alt="">
+                    class="absolute top-20 left-14 w-12 animate-pulse opacity-70 z-40" alt="">
+                {{-- <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-6 right-6 w-28 opacity-40 z-10"
+                    alt=""> --}}
 
                 <!-- Main Content Container (Removed justify-center to move content up) -->
                 <div class="relative z-20 w-full flex flex-col items-center px-6 ">
 
                     <!-- Arched Photo Container -->
-                    <div class="relative w-full max-w-[220px] mb-8 reveal-zoom">
+                    <div class="relative w-full max-w-[230px] mb-8 reveal-zoom">
                         <!-- The arch border / photo asset -->
                         <img src="{{ asset('assets/foto/closing-photo-compress.webp') }}"
                             class="w-full h-auto object-contain relative z-10" alt="Closing Photo">
@@ -915,7 +915,7 @@
 
                     <!-- Closing Message Section -->
                     <div class="text-center text-white max-w-xs reveal-up">
-                        <p class="text-[13px] leading-relaxed mb-6 font-medium">
+                        <p class="text-[13px] leading-relaxed mb-4 font-medium">
                             Suatu kebahagiaan & kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan
                             memberikan do'a restu kepada kami
                         </p>
