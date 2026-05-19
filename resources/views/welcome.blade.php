@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan Mila & Rizal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="{{ asset('assets/main-bg.webp') }}" as="image">
+    <link rel="preload" href="{{ asset('assets/header-main-bg.webp') }}" as="image">
+    <link rel="preload" href="{{ asset('assets/butterfly-second.webp') }}" as="image">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -16,7 +24,11 @@
 
     <!-- LEFT PANEL (desktop only) -->
     <div id="desktopLeft" class="hidden md:flex flex-1 relative overflow-hidden">
-        <img src="{{ asset('assets/ARV_9022.JPG-compress.webp') }}" class="w-full h-full object-cover" alt="">
+        <img src="{{ asset('assets/ARV_9022.JPG-compress.webp') }}" 
+             class="w-full h-full object-cover" 
+             alt="Mila & Rizal" 
+             fetchpriority="high"
+             decoding="async">
         <!-- Optional overlay branding -->
         <div class="absolute bottom-16 left-12 text-white">
             <p class="text-sm tracking-[0.3em] uppercase font-light mb-2">The Wedding of</p>
@@ -29,7 +41,7 @@
 
     <div id="desktopRight">
         <!-- Audio Element -->
-        <audio id="bgMusic" loop>
+        <audio id="bgMusic" loop preload="none">
             <source src="{{ asset('assets/bg-audio-2.mp3') }}" type="audio/mpeg">
         </audio>
 
@@ -37,12 +49,23 @@
         <section id="cover"
             class="fixed inset-0 z-[100] flex flex-col items-center bg-forest-pattern transition-opacity duration-1000">
             <img src="{{ asset('assets/butterfly-second.webp') }}"
-                class="absolute bottom-40 right-10 z-40 w-20 animate-fade-up opacity-60" alt="">
+                class="absolute bottom-40 right-10 z-40 w-20 animate-fade-up opacity-60" 
+                alt="Butterfly Decoration"
+                loading="eager"
+                decoding="async">
 
             <!-- Floating Assets -->
-            <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow"
-                alt="Animated Cloud">
-            <img src="{{ asset('assets/header-main-bg.webp') }}" class="absolute top-0 left-0" alt="">
+            <img src="{{ asset('assets/cloud.webp') }}" 
+                class="absolute top-20 w-32 animate-cloud-slow"
+                alt="Animated Cloud"
+                loading="eager"
+                decoding="async">
+            <img src="{{ asset('assets/header-main-bg.webp') }}" 
+                class="absolute top-0 left-0" 
+                alt="Header Background"
+                fetchpriority="high"
+                loading="eager"
+                decoding="async">
 
             <!-- Decorative Birds -->
             <canvas id="lottie-bird" class="absolute top-30 right-10"></canvas>
@@ -87,12 +110,18 @@
                 <div class="relative translate-y-60">
                     <!-- Image handles the animation -->
                     <img src="{{ asset('assets/footer-bird-compress.webp') }}"
-                        class="w-56 mx-auto animate-fade-up [animation-delay:0.4s] opacity-0" alt="Footer Bird" />
+                        class="w-56 mx-auto animate-fade-up [animation-delay:0.4s] opacity-0" 
+                        alt="Footer Bird" 
+                        loading="lazy"
+                        decoding="async" />
                 </div>
                 <!-- Flowers -->
                 <img src="{{ asset('assets/main-footer.webp') }}"
                     class="w-full h-auto object-cover opacity-90 -mt-20
-               animate-fade-up opacity-0" />
+               animate-fade-up opacity-0" 
+                    alt="Footer Flowers"
+                    loading="lazy"
+                    decoding="async" />
 
             </div>
         </section>
@@ -106,13 +135,26 @@
 
                 <!-- Floating Decorations -->
                 <img src="{{ asset('assets/butterfly-one.webp') }}"
-                    class="absolute top-30 left-10 w-16 animate-pulse opacity-90 z-30" alt="">
+                    class="absolute top-30 left-10 w-16 animate-pulse opacity-90 z-30" 
+                    alt="Butterfly Decoration"
+                    loading="lazy"
+                    decoding="async">
                 <img src="{{ asset('assets/butterfly-second.webp') }}"
-                    class="absolute bottom-83 md:bottom-99 right-5 w-20 opacity-90 z-30" alt="">
+                    class="absolute bottom-83 md:bottom-99 right-5 w-20 opacity-90 z-30" 
+                    alt="Butterfly Decoration"
+                    loading="lazy"
+                    decoding="async">
 
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow"
-                    alt="Animated Cloud">
-                <img src="{{ asset('assets/header-main-bg.webp') }}" class="absolute top-0 left-0" alt="">
+                <img src="{{ asset('assets/cloud.webp') }}" 
+                    class="absolute top-20 w-32 animate-cloud-slow"
+                    alt="Animated Cloud"
+                    loading="lazy"
+                    decoding="async">
+                <img src="{{ asset('assets/header-main-bg.webp') }}" 
+                    class="absolute top-0 left-0" 
+                    alt="Header Background"
+                    loading="lazy"
+                    decoding="async">
 
                 <div class="container mx-auto px-6 text-center z-4">
                     <div class="mt-10">
@@ -122,8 +164,11 @@
 
                     <div class="animate-fade-up mb-8 translate-y-10 z-10">
                         <div class="relative inline-block">
-                            <img src="{{ asset('assets/foto/main-content-cover.webp') }}" class="mx-auto object-cover"
-                                alt="Couple">
+                            <img src="{{ asset('assets/foto/main-content-cover.webp') }}" 
+                                 class="mx-auto object-cover"
+                                 alt="Main Content Cover"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                     </div>
                 </div>
@@ -131,9 +176,15 @@
                 <!-- Footer Birds -->
                 <div class="section-footer w-full">
                     <img src="{{ asset('assets/footer-bird-compress.webp') }}"
-                        class="w-56 mx-auto relative translate-y-60" />
+                        class="w-56 mx-auto relative translate-y-60" 
+                        alt="Footer Bird"
+                        loading="lazy"
+                        decoding="async" />
                     <img src="{{ asset('assets/main-footer.webp') }}"
-                        class="w-full h-auto object-cover opacity-90 -mt-20 animate-fade-up [animation-delay:0.4s] opacity-0" />
+                        class="w-full h-auto object-cover opacity-90 -mt-20 animate-fade-up [animation-delay:0.4s] opacity-0" 
+                        alt="Footer Flowers"
+                        loading="lazy"
+                        decoding="async" />
                 </div>
             </section>
 
@@ -141,9 +192,16 @@
             <section id="couple"
                 class="py-32 bg-forest-pattern relative overflow-hidden min-h-screen flex items-center justify-center">
                 <!-- Decorative Leaves -->
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow"
-                    alt="Animated Cloud">
-                <img src="{{ asset('assets/header-main-bg.webp') }}" class="absolute top-0 left-0" alt="">
+                <img src="{{ asset('assets/cloud.webp') }}" 
+                    class="absolute top-20 w-32 animate-cloud-slow"
+                    alt="Animated Cloud"
+                    loading="lazy"
+                    decoding="async">
+                <img src="{{ asset('assets/header-main-bg.webp') }}" 
+                    class="absolute top-0 left-0" 
+                    alt="Header Background"
+                    loading="lazy"
+                    decoding="async">
 
                 <!-- Arch Container -->
                 <div class="relative z-10 mx-auto px-6 w-full max-w-sm">
@@ -177,7 +235,10 @@
                                 <div
                                     class="w-full h-full rounded-full overflow-hidden border-4 border-white/60 shadow-lg">
                                     <img src="{{ asset('assets/foto/couple-woman_compressed_2.webp') }}"
-                                        class="w-full h-full object-cover" alt="Bride">
+                                        class="w-full h-full object-cover" 
+                                        alt="Bride Mila"
+                                        loading="lazy"
+                                        decoding="async">
                                 </div>
                             </div>
                             <h3 class="font-violetbee text-5xl text-white mb-1">Mila</h3>
@@ -211,7 +272,10 @@
                                 <div
                                     class="w-full h-full rounded-full overflow-hidden border-4 border-white/60 shadow-lg">
                                     <img src="{{ asset('assets/foto/couple-man_compressed_2.webp') }}"
-                                        class="w-full h-full object-cover" alt="Groom">
+                                        class="w-full h-full object-cover" 
+                                        alt="Groom Rizal"
+                                        loading="lazy"
+                                        decoding="async">
                                 </div>
                             </div>
                             <h3 class="font-violetbee text-5xl text-white mb-1">Rizal</h3>
@@ -232,8 +296,11 @@
                 </div>
 
                 <div class="section-footer">
-                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-80"
-                        alt="">
+                    <img src="{{ asset('assets/main-footer.webp') }}" 
+                        class="w-full h-auto object-cover opacity-80"
+                        alt="Footer Flowers"
+                        loading="lazy"
+                        decoding="async">
                 </div>
             </section>
 
@@ -243,11 +310,20 @@
 
                 <!-- Floating Decorations -->
                 <img src="{{ asset('assets/butterfly-one.webp') }}"
-                    class="absolute top-16 left-4 w-12 animate-pulse opacity-70 z-10" alt="">
+                    class="absolute top-16 left-4 w-12 animate-pulse opacity-70 z-10" 
+                    alt="Butterfly Decoration"
+                    loading="lazy"
+                    decoding="async">
                 <img src="{{ asset('assets/butterfly-second.webp') }}"
-                    class="absolute top-32 right-6 w-14 animate-bounce opacity-60 z-10" alt="">
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-4 right-10 w-28 opacity-30 z-10"
-                    alt="">
+                    class="absolute top-32 right-6 w-14 animate-bounce opacity-60 z-10" 
+                    alt="Butterfly Decoration"
+                    loading="lazy"
+                    decoding="async">
+                <img src="{{ asset('assets/cloud.webp') }}" 
+                    class="absolute top-4 right-10 w-28 opacity-30 z-10"
+                    alt="Animated Cloud"
+                    loading="lazy"
+                    decoding="async">
 
                 <div class="relative z-20 w-full flex flex-col items-center justify-center px-5">
 
@@ -257,7 +333,9 @@
                         <!-- Octagon Border image -->
                         <img src="{{ asset('assets/foto/border-save-date.webp') }}"
                             class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none scale-110"
-                            alt="">
+                            alt="Border Save Date"
+                            loading="lazy"
+                            decoding="async">
 
                         <!-- Content -->
                         <div class="relative z-10 flex flex-col items-center text-center px-8 pt-12 pb-10"
@@ -271,7 +349,10 @@
                             <div
                                 class="w-44 h-44 rounded-full overflow-hidden border-[6px] border-[#c2b280] shadow-2xl mb-8">
                                 <img src="{{ asset('assets/ARV_9022.JPG-compress.webp') }}"
-                                    class="w-full h-full object-cover" alt="Couple">
+                                    class="w-full h-full object-cover" 
+                                    alt="Couple Portrait"
+                                    loading="lazy"
+                                    decoding="async">
                             </div>
 
                             <!-- Countdown boxes: Updated to Gold Background + White Text -->
@@ -327,8 +408,11 @@
                 </div>
 
                 <div class="section-footer">
-                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-80"
-                        alt="">
+                    <img src="{{ asset('assets/main-footer.webp') }}" 
+                        class="w-full h-auto object-cover opacity-80"
+                        alt="Footer Flowers"
+                        loading="lazy"
+                        decoding="async">
                 </div>
             </section>
 
@@ -338,7 +422,10 @@
 
                 <!-- Floating Decorations -->
                 <img src="{{ asset('assets/butterfly-one.webp') }}"
-                    class="absolute top-20 left-4 w-12 animate-pulse opacity-70 z-10" alt="">
+                    class="absolute top-20 left-4 w-12 animate-pulse opacity-70 z-10" 
+                    alt="Butterfly Decoration"
+                    loading="lazy"
+                    decoding="async">
 
                 <!-- Arch Card -->
                 <div class="reveal-up relative z-20 w-full flex items-center justify-center px-5 py-10">
@@ -349,7 +436,9 @@
                         <!-- The arch border SVG -->
                         <img src="{{ asset('assets/foto/border-akad-resepsi-info-compress.webp') }}"
                             class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none"
-                            alt="">
+                            alt="Border Info"
+                            loading="lazy"
+                            decoding="async">
 
                         <!-- Content layered on top of the SVG -->
                         <div class="relative z-10 flex flex-col items-center text-center px-10 pt-16 pb-16"
@@ -358,7 +447,10 @@
                             <!-- Flower decoration top -->
                             <div class="mb-3">
                                 <img src="{{ asset('assets/foto/flower-white.webp') }}"
-                                    class="w-20 h-auto opacity-80 mx-auto" alt="">
+                                    class="w-20 h-auto opacity-80 mx-auto" 
+                                    alt="Flower Decoration"
+                                    loading="lazy"
+                                    decoding="async">
                             </div>
 
                             <!-- Script title -->
@@ -417,7 +509,9 @@
                         <!-- The arch border SVG -->
                         <img src="{{ asset('assets/foto/border-akad-resepsi-info-compress.webp') }}"
                             class="w-full h-auto object-contain absolute inset-0 z-0 pointer-events-none"
-                            alt="">
+                            alt="Border Info"
+                            loading="lazy"
+                            decoding="async">
 
                         <!-- Content layered on top of the SVG -->
                         <div class="relative z-10 flex flex-col items-center text-center px-10 pt-16 pb-16"
@@ -426,7 +520,10 @@
                             <!-- Flower decoration top -->
                             <div class="mb-3">
                                 <img src="{{ asset('assets/foto/flower-white.webp') }}"
-                                    class="w-20 h-auto opacity-80 mx-auto" alt="">
+                                    class="w-20 h-auto opacity-80 mx-auto" 
+                                    alt="Flower Decoration"
+                                    loading="lazy"
+                                    decoding="async">
                             </div>
 
                             <!-- Script title -->
@@ -483,9 +580,15 @@
             <section id="story" class="py-28 bg-forest-second relative overflow-hidden">
                 <!-- Floating Decorative Assets -->
                 <img src="{{ asset('assets/butterfly-one.webp') }}"
-                    class="absolute top-20 left-10 w-16 animate-pulse opacity-60" alt="">
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-10 right-20 w-32 opacity-30"
-                    alt="">
+                    class="absolute top-20 left-10 w-16 animate-pulse opacity-60" 
+                    alt="Butterfly Decoration"
+                    loading="lazy"
+                    decoding="async">
+                <img src="{{ asset('assets/cloud.webp') }}" 
+                    class="absolute top-10 right-20 w-32 opacity-30"
+                    alt="Animated Cloud"
+                    loading="lazy"
+                    decoding="async">
 
                 <div class="container mx-auto px-8 relative z-10 mb-30">
                     <!-- Section Header -->
@@ -603,21 +706,34 @@
 
                     <!-- Bird -->
                     <img src="{{ asset('assets/footer-bird-compress.webp') }}"
-                        class="w-56 mx-auto relative translate-y-60" />
+                        class="w-56 mx-auto relative translate-y-60" 
+                        alt="Footer Bird"
+                        loading="lazy"
+                        decoding="async" />
 
                     <!-- Flowers -->
                     <img src="{{ asset('assets/main-footer.webp') }}"
                         class="w-full h-auto object-cover opacity-90 -mt-20
-               animate-fade-up [animation-delay:0.4s] opacity-0" />
+               animate-fade-up [animation-delay:0.4s] opacity-0" 
+                        alt="Footer Flowers"
+                        loading="lazy"
+                        decoding="async" />
 
                 </div>
             </section>
 
             <!-- Gallery Section -->
             <section id="gallery" class="pt-24 pb-60 bg-forest-pattern relative overflow-hidden">
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-20 w-32 animate-cloud-slow"
-                    alt="Animated Cloud">
-                <img src="{{ asset('assets/header-main-bg.webp') }}" class="absolute top-0 left-0" alt="">
+                <img src="{{ asset('assets/cloud.webp') }}" 
+                    class="absolute top-20 w-32 animate-cloud-slow"
+                    alt="Animated Cloud"
+                    loading="lazy"
+                    decoding="async">
+                <img src="{{ asset('assets/header-main-bg.webp') }}" 
+                    class="absolute top-0 left-0" 
+                    alt="Header Background"
+                    loading="lazy"
+                    decoding="async">
 
                 <!-- Title -->
                 <div class="container mx-auto px-4 pt-5 mb-10 relative z-10 text-center">
@@ -629,25 +745,43 @@
 
                     <!-- Row 1: Top Wide Image -->
                     <div class="reveal-zoom">
-                        <img src="{{ asset('assets/foto/collage-1-top.webp') }}" class="w-full h-auto block"
-                            alt="Couple Traditional">
+                        <img src="{{ asset('assets/foto/collage-1-top.webp') }}" 
+                            class="w-full h-auto block"
+                            alt="Gallery Collage 1"
+                            loading="lazy"
+                            decoding="async">
                     </div>
 
                     <!-- Row 2: Cluster (Left) + Large Portrait (Right) -->
                     <div class="grid grid-cols-2 gap-2 items-stretch">
                         <div class="grid grid-cols-2 gap-2">
                             <img src="{{ asset('assets/foto/collage-1.webp') }}"
-                                class="w-full h-full object-cover reveal-zoom block">
+                                class="w-full h-full object-cover reveal-zoom block"
+                                alt="Gallery Collage 2"
+                                loading="lazy"
+                                decoding="async">
                             <img src="{{ asset('assets/foto/collage-2.webp') }}"
-                                class="w-full h-full object-cover reveal-zoom block">
+                                class="w-full h-full object-cover reveal-zoom block"
+                                alt="Gallery Collage 3"
+                                loading="lazy"
+                                decoding="async">
                             <img src="{{ asset('assets/foto/collage-3.webp') }}"
-                                class="w-full h-full object-cover reveal-zoom block">
+                                class="w-full h-full object-cover reveal-zoom block"
+                                alt="Gallery Collage 4"
+                                loading="lazy"
+                                decoding="async">
                             <img src="{{ asset('assets/foto/collage-4.webp') }}"
-                                class="w-full h-full object-cover reveal-zoom block">
+                                class="w-full h-full object-cover reveal-zoom block"
+                                alt="Gallery Collage 5"
+                                loading="lazy"
+                                decoding="async">
                         </div>
                         <div class="reveal-zoom">
                             <img src="{{ asset('assets/foto/collage-5.webp') }}"
-                                class="w-full h-full object-cover block">
+                                class="w-full h-full object-cover block"
+                                alt="Gallery Collage 6"
+                                loading="lazy"
+                                decoding="async">
                         </div>
                     </div>
 
@@ -655,17 +789,32 @@
                     <div class="grid grid-cols-2 gap-2 items-stretch">
                         <div class="reveal-zoom">
                             <img src="{{ asset('assets/foto/collage-6.webp') }}"
-                                class="w-full h-full object-cover block">
+                                class="w-full h-full object-cover block"
+                                alt="Gallery Collage 7"
+                                loading="lazy"
+                                decoding="async">
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <img src="{{ asset('assets/foto/collage-7.webp') }}"
-                                class="w-full h-full object-cover reveal-zoom block">
+                                class="w-full h-full object-cover reveal-zoom block"
+                                alt="Gallery Collage 8"
+                                loading="lazy"
+                                decoding="async">
                             <img src="{{ asset('assets/foto/collage-8.webp') }}"
-                                class="w-full h-full object-cover reveal-zoom block">
+                                class="w-full h-full object-cover reveal-zoom block"
+                                alt="Gallery Collage 9"
+                                loading="lazy"
+                                decoding="async">
                             <img src="{{ asset('assets/foto/collage-9.webp') }}"
-                                class="w-full h-full object-cover reveal-zoom block">
+                                class="w-full h-full object-cover reveal-zoom block"
+                                alt="Gallery Collage 10"
+                                loading="lazy"
+                                decoding="async">
                             <img src="{{ asset('assets/foto/collage-10.webp') }}"
-                                class="w-full h-full object-cover reveal-zoom block">
+                                class="w-full h-full object-cover reveal-zoom block"
+                                alt="Gallery Collage 11"
+                                loading="lazy"
+                                decoding="async">
                         </div>
                     </div>
                 </div>
@@ -675,11 +824,17 @@
 
                     <!-- Bird -->
                     <img src="{{ asset('assets/footer-bird-compress.webp') }}"
-                        class="w-56 mx-auto relative translate-y-60" />
+                        class="w-56 mx-auto relative translate-y-60" 
+                        alt="Footer Bird"
+                        loading="lazy"
+                        decoding="async" />
 
                     <!-- Flowers -->
                     <img src="{{ asset('assets/main-footer.webp') }}"
-                        class="w-full h-auto object-cover opacity-90 -mt-20 animate-fade-up [animation-delay:0.4s] opacity-0" />
+                        class="w-full h-auto object-cover opacity-90 -mt-20 animate-fade-up [animation-delay:0.4s] opacity-0" 
+                        alt="Footer Flowers"
+                        loading="lazy"
+                        decoding="async" />
 
                 </div>
             </section>
@@ -701,8 +856,11 @@
                 </div>
 
                 <div class="section-footer">
-                    <img src="{{ asset('assets/main-footer.webp') }}" class="w-full h-auto object-cover opacity-80"
-                        alt="">
+                    <img src="{{ asset('assets/main-footer.webp') }}" 
+                        class="w-full h-auto object-cover opacity-80"
+                        alt="Footer Flowers"
+                        loading="lazy"
+                        decoding="async">
                 </div>
             </section>
 
@@ -711,15 +869,25 @@
                 class="py-20 bg-forest-pattern relative overflow-hidden min-h-screen flex items-center justify-center">
 
                 <!-- Floating Assets -->
-                <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-17 w-32 animate-cloud-slow"
-                    alt="Animated Cloud">
-                <img src="{{ asset('assets/header-main-bg.webp') }}" class="absolute top-0 left-0" alt="">
+                <img src="{{ asset('assets/cloud.webp') }}" 
+                    class="absolute top-17 w-32 animate-cloud-slow"
+                    alt="Animated Cloud"
+                    loading="lazy"
+                    decoding="async">
+                <img src="{{ asset('assets/header-main-bg.webp') }}" 
+                    class="absolute top-0 left-0" 
+                    alt="Header Background"
+                    loading="lazy"
+                    decoding="async">
 
 
                 <!-- Stone Arch Frame -->
                 <div class="absolute inset-0 z-0 flex justify-center items-center pointer-events-none">
-                    <img src="{{ asset('assets/wishes-stone-arch.webp') }}" class="h-auto w-auto object-contain"
-                        alt="">
+                    <img src="{{ asset('assets/wishes-stone-arch.webp') }}" 
+                        class="h-auto w-auto object-contain"
+                        alt="Stone Arch"
+                        loading="lazy"
+                        decoding="async">
                 </div>
 
                 <!-- Cream Arch + Content -->
@@ -729,7 +897,9 @@
 
                         <img src="{{ asset('assets/wishes-cream-arch.svg') }}"
                             class="absolute inset-0 w-full h-full object-fill pointer-events-none"
-                            alt="Cream Arch Insert">
+                            alt="Cream Arch Insert"
+                            loading="lazy"
+                            decoding="async">
 
                         <div
                             class="absolute inset-0 flex flex-col items-center text-center
@@ -887,9 +1057,15 @@
                 <!-- Footer -->
                 <div class="section-footer w-full">
                     <img src="{{ asset('assets/footer-bird-compress.webp') }}"
-                        class="w-56 mx-auto relative translate-y-60" />
+                        class="w-56 mx-auto relative translate-y-60" 
+                        alt="Footer Bird"
+                        loading="lazy"
+                        decoding="async" />
                     <img src="{{ asset('assets/main-footer.webp') }}"
-                        class="w-full h-auto object-cover opacity-90 -mt-20 animate-fade-up [animation-delay:0.4s] opacity-0" />
+                        class="w-full h-auto object-cover opacity-90 -mt-20 animate-fade-up [animation-delay:0.4s] opacity-0" 
+                        alt="Footer Flowers"
+                        loading="lazy"
+                        decoding="async" />
                 </div>
             </section>
 
@@ -899,7 +1075,10 @@
 
                 <!-- Floating Decorations -->
                 <img src="{{ asset('assets/butterfly-one.webp') }}"
-                    class="absolute top-20 left-14 w-12 animate-pulse opacity-70 z-40" alt="">
+                    class="absolute top-20 left-14 w-12 animate-pulse opacity-70 z-40" 
+                    alt="Butterfly Decoration"
+                    loading="lazy"
+                    decoding="async">
                 {{-- <img src="{{ asset('assets/cloud.webp') }}" class="absolute top-6 right-6 w-28 opacity-40 z-10"
                     alt=""> --}}
 
@@ -910,7 +1089,10 @@
                     <div class="relative w-full max-w-[230px] md:max-w-[300px] sm:max-w-[200px] mb-8 reveal-zoom">
                         <!-- The arch border / photo asset -->
                         <img src="{{ asset('assets/foto/closing-photo-compress.webp') }}"
-                            class="w-full h-auto object-contain relative z-10" alt="Closing Photo">
+                            class="w-full h-auto object-contain relative z-10" 
+                            alt="Closing Photo"
+                            loading="lazy"
+                            decoding="async">
                     </div>
 
                     <!-- Closing Message Section -->
@@ -938,12 +1120,18 @@
                 <div class="section-footer w-full">
                     <!-- Bird -->
                     <img src="{{ asset('assets/footer-bird-compress.webp') }}"
-                        class="w-56 mx-auto relative translate-y-60" />
+                        class="w-56 mx-auto relative translate-y-60" 
+                        alt="Footer Bird"
+                        loading="lazy"
+                        decoding="async" />
 
                     <!-- Flowers -->
                     <img src="{{ asset('assets/main-footer.webp') }}"
                         class="w-full h-auto object-cover opacity-90 -mt-20
-   animate-fade-up [animation-delay:0.4s] opacity-0" />
+   animate-fade-up [animation-delay:0.4s] opacity-0" 
+                        alt="Footer Flowers"
+                        loading="lazy"
+                        decoding="async" />
                 </div>
             </footer>
 
